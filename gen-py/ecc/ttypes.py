@@ -84,6 +84,795 @@ class InitParame(object):
         return not (self == other)
 
 
+class ProtocolOne(object):
+    """
+    Attributes:
+     - t1
+     - t2
+     - t3
+     - t4
+     - t5
+     - gamma
+     - sz1
+     - sz
+     - sa
+     - sb1
+     - sb2
+     - sg
+     - sh
+     - sy
+     - M
+     - L
+     - d
+     - u
+     - x
+     - s1
+     - s2
+     - v
+     - sxi
+
+    """
+
+
+    def __init__(self, t1=None, t2=None, t3=None, t4=None, t5=None, gamma=None, sz1=None, sz=None, sa=None, sb1=None, sb2=None, sg=None, sh=None, sy=None, M=None, L=None, d=None, u=None, x=None, s1=None, s2=None, v=None, sxi=None,):
+        self.t1 = t1
+        self.t2 = t2
+        self.t3 = t3
+        self.t4 = t4
+        self.t5 = t5
+        self.gamma = gamma
+        self.sz1 = sz1
+        self.sz = sz
+        self.sa = sa
+        self.sb1 = sb1
+        self.sb2 = sb2
+        self.sg = sg
+        self.sh = sh
+        self.sy = sy
+        self.M = M
+        self.L = L
+        self.d = d
+        self.u = u
+        self.x = x
+        self.s1 = s1
+        self.s2 = s2
+        self.v = v
+        self.sxi = sxi
+
+    def read(self, iprot):
+        if iprot._fast_decode is not None and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None:
+            iprot._fast_decode(self, iprot, [self.__class__, self.thrift_spec])
+            return
+        iprot.readStructBegin()
+        while True:
+            (fname, ftype, fid) = iprot.readFieldBegin()
+            if ftype == TType.STOP:
+                break
+            if fid == 1:
+                if ftype == TType.STRING:
+                    self.t1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 2:
+                if ftype == TType.STRING:
+                    self.t2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 3:
+                if ftype == TType.STRING:
+                    self.t3 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 4:
+                if ftype == TType.STRING:
+                    self.t4 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 5:
+                if ftype == TType.STRING:
+                    self.t5 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 6:
+                if ftype == TType.STRING:
+                    self.gamma = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 7:
+                if ftype == TType.STRING:
+                    self.sz1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 8:
+                if ftype == TType.STRING:
+                    self.sz = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 9:
+                if ftype == TType.STRING:
+                    self.sa = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 10:
+                if ftype == TType.STRING:
+                    self.sb1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 11:
+                if ftype == TType.STRING:
+                    self.sb2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 12:
+                if ftype == TType.STRING:
+                    self.sg = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 13:
+                if ftype == TType.STRING:
+                    self.sh = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 14:
+                if ftype == TType.STRING:
+                    self.sy = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 15:
+                if ftype == TType.STRING:
+                    self.M = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 16:
+                if ftype == TType.STRING:
+                    self.L = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 17:
+                if ftype == TType.STRING:
+                    self.d = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 18:
+                if ftype == TType.STRING:
+                    self.u = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 19:
+                if ftype == TType.STRING:
+                    self.x = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 20:
+                if ftype == TType.STRING:
+                    self.s1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 21:
+                if ftype == TType.STRING:
+                    self.s2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 22:
+                if ftype == TType.STRING:
+                    self.v = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 23:
+                if ftype == TType.STRING:
+                    self.sxi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            else:
+                iprot.skip(ftype)
+            iprot.readFieldEnd()
+        iprot.readStructEnd()
+
+    def write(self, oprot):
+        if oprot._fast_encode is not None and self.thrift_spec is not None:
+            oprot.trans.write(oprot._fast_encode(self, [self.__class__, self.thrift_spec]))
+            return
+        oprot.writeStructBegin('ProtocolOne')
+        if self.t1 is not None:
+            oprot.writeFieldBegin('t1', TType.STRING, 1)
+            oprot.writeString(self.t1.encode('utf-8') if sys.version_info[0] == 2 else self.t1)
+            oprot.writeFieldEnd()
+        if self.t2 is not None:
+            oprot.writeFieldBegin('t2', TType.STRING, 2)
+            oprot.writeString(self.t2.encode('utf-8') if sys.version_info[0] == 2 else self.t2)
+            oprot.writeFieldEnd()
+        if self.t3 is not None:
+            oprot.writeFieldBegin('t3', TType.STRING, 3)
+            oprot.writeString(self.t3.encode('utf-8') if sys.version_info[0] == 2 else self.t3)
+            oprot.writeFieldEnd()
+        if self.t4 is not None:
+            oprot.writeFieldBegin('t4', TType.STRING, 4)
+            oprot.writeString(self.t4.encode('utf-8') if sys.version_info[0] == 2 else self.t4)
+            oprot.writeFieldEnd()
+        if self.t5 is not None:
+            oprot.writeFieldBegin('t5', TType.STRING, 5)
+            oprot.writeString(self.t5.encode('utf-8') if sys.version_info[0] == 2 else self.t5)
+            oprot.writeFieldEnd()
+        if self.gamma is not None:
+            oprot.writeFieldBegin('gamma', TType.STRING, 6)
+            oprot.writeString(self.gamma.encode('utf-8') if sys.version_info[0] == 2 else self.gamma)
+            oprot.writeFieldEnd()
+        if self.sz1 is not None:
+            oprot.writeFieldBegin('sz1', TType.STRING, 7)
+            oprot.writeString(self.sz1.encode('utf-8') if sys.version_info[0] == 2 else self.sz1)
+            oprot.writeFieldEnd()
+        if self.sz is not None:
+            oprot.writeFieldBegin('sz', TType.STRING, 8)
+            oprot.writeString(self.sz.encode('utf-8') if sys.version_info[0] == 2 else self.sz)
+            oprot.writeFieldEnd()
+        if self.sa is not None:
+            oprot.writeFieldBegin('sa', TType.STRING, 9)
+            oprot.writeString(self.sa.encode('utf-8') if sys.version_info[0] == 2 else self.sa)
+            oprot.writeFieldEnd()
+        if self.sb1 is not None:
+            oprot.writeFieldBegin('sb1', TType.STRING, 10)
+            oprot.writeString(self.sb1.encode('utf-8') if sys.version_info[0] == 2 else self.sb1)
+            oprot.writeFieldEnd()
+        if self.sb2 is not None:
+            oprot.writeFieldBegin('sb2', TType.STRING, 11)
+            oprot.writeString(self.sb2.encode('utf-8') if sys.version_info[0] == 2 else self.sb2)
+            oprot.writeFieldEnd()
+        if self.sg is not None:
+            oprot.writeFieldBegin('sg', TType.STRING, 12)
+            oprot.writeString(self.sg.encode('utf-8') if sys.version_info[0] == 2 else self.sg)
+            oprot.writeFieldEnd()
+        if self.sh is not None:
+            oprot.writeFieldBegin('sh', TType.STRING, 13)
+            oprot.writeString(self.sh.encode('utf-8') if sys.version_info[0] == 2 else self.sh)
+            oprot.writeFieldEnd()
+        if self.sy is not None:
+            oprot.writeFieldBegin('sy', TType.STRING, 14)
+            oprot.writeString(self.sy.encode('utf-8') if sys.version_info[0] == 2 else self.sy)
+            oprot.writeFieldEnd()
+        if self.M is not None:
+            oprot.writeFieldBegin('M', TType.STRING, 15)
+            oprot.writeString(self.M.encode('utf-8') if sys.version_info[0] == 2 else self.M)
+            oprot.writeFieldEnd()
+        if self.L is not None:
+            oprot.writeFieldBegin('L', TType.STRING, 16)
+            oprot.writeString(self.L.encode('utf-8') if sys.version_info[0] == 2 else self.L)
+            oprot.writeFieldEnd()
+        if self.d is not None:
+            oprot.writeFieldBegin('d', TType.STRING, 17)
+            oprot.writeString(self.d.encode('utf-8') if sys.version_info[0] == 2 else self.d)
+            oprot.writeFieldEnd()
+        if self.u is not None:
+            oprot.writeFieldBegin('u', TType.STRING, 18)
+            oprot.writeString(self.u.encode('utf-8') if sys.version_info[0] == 2 else self.u)
+            oprot.writeFieldEnd()
+        if self.x is not None:
+            oprot.writeFieldBegin('x', TType.STRING, 19)
+            oprot.writeString(self.x.encode('utf-8') if sys.version_info[0] == 2 else self.x)
+            oprot.writeFieldEnd()
+        if self.s1 is not None:
+            oprot.writeFieldBegin('s1', TType.STRING, 20)
+            oprot.writeString(self.s1.encode('utf-8') if sys.version_info[0] == 2 else self.s1)
+            oprot.writeFieldEnd()
+        if self.s2 is not None:
+            oprot.writeFieldBegin('s2', TType.STRING, 21)
+            oprot.writeString(self.s2.encode('utf-8') if sys.version_info[0] == 2 else self.s2)
+            oprot.writeFieldEnd()
+        if self.v is not None:
+            oprot.writeFieldBegin('v', TType.STRING, 22)
+            oprot.writeString(self.v.encode('utf-8') if sys.version_info[0] == 2 else self.v)
+            oprot.writeFieldEnd()
+        if self.sxi is not None:
+            oprot.writeFieldBegin('sxi', TType.STRING, 23)
+            oprot.writeString(self.sxi.encode('utf-8') if sys.version_info[0] == 2 else self.sxi)
+            oprot.writeFieldEnd()
+        oprot.writeFieldStop()
+        oprot.writeStructEnd()
+
+    def validate(self):
+        return
+
+    def __repr__(self):
+        L = ['%s=%r' % (key, value)
+             for key, value in self.__dict__.items()]
+        return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        return not (self == other)
+
+
+class ReturnOne(object):
+    """
+    Attributes:
+     - zeta1
+     - zeta2
+     - alpha
+     - beta1
+     - beta2
+     - epsilon
+     - e
+     - c
+     - r
+     - roi
+     - omega
+     - sigma1
+     - sigma2
+     - delta
+     - xiv
+     - sxiv
+     - szeta1
+     - szeta2
+
+    """
+
+
+    def __init__(self, zeta1=None, zeta2=None, alpha=None, beta1=None, beta2=None, epsilon=None, e=None, c=None, r=None, roi=None, omega=None, sigma1=None, sigma2=None, delta=None, xiv=None, sxiv=None, szeta1=None, szeta2=None,):
+        self.zeta1 = zeta1
+        self.zeta2 = zeta2
+        self.alpha = alpha
+        self.beta1 = beta1
+        self.beta2 = beta2
+        self.epsilon = epsilon
+        self.e = e
+        self.c = c
+        self.r = r
+        self.roi = roi
+        self.omega = omega
+        self.sigma1 = sigma1
+        self.sigma2 = sigma2
+        self.delta = delta
+        self.xiv = xiv
+        self.sxiv = sxiv
+        self.szeta1 = szeta1
+        self.szeta2 = szeta2
+
+    def read(self, iprot):
+        if iprot._fast_decode is not None and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None:
+            iprot._fast_decode(self, iprot, [self.__class__, self.thrift_spec])
+            return
+        iprot.readStructBegin()
+        while True:
+            (fname, ftype, fid) = iprot.readFieldBegin()
+            if ftype == TType.STOP:
+                break
+            if fid == 1:
+                if ftype == TType.STRING:
+                    self.zeta1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 2:
+                if ftype == TType.STRING:
+                    self.zeta2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 3:
+                if ftype == TType.STRING:
+                    self.alpha = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 4:
+                if ftype == TType.STRING:
+                    self.beta1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 5:
+                if ftype == TType.STRING:
+                    self.beta2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 6:
+                if ftype == TType.STRING:
+                    self.epsilon = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 7:
+                if ftype == TType.STRING:
+                    self.e = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 8:
+                if ftype == TType.STRING:
+                    self.c = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 9:
+                if ftype == TType.STRING:
+                    self.r = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 10:
+                if ftype == TType.STRING:
+                    self.roi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 11:
+                if ftype == TType.STRING:
+                    self.omega = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 12:
+                if ftype == TType.STRING:
+                    self.sigma1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 13:
+                if ftype == TType.STRING:
+                    self.sigma2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 14:
+                if ftype == TType.STRING:
+                    self.delta = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 15:
+                if ftype == TType.STRING:
+                    self.xiv = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 16:
+                if ftype == TType.STRING:
+                    self.sxiv = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 17:
+                if ftype == TType.STRING:
+                    self.szeta1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 18:
+                if ftype == TType.STRING:
+                    self.szeta2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            else:
+                iprot.skip(ftype)
+            iprot.readFieldEnd()
+        iprot.readStructEnd()
+
+    def write(self, oprot):
+        if oprot._fast_encode is not None and self.thrift_spec is not None:
+            oprot.trans.write(oprot._fast_encode(self, [self.__class__, self.thrift_spec]))
+            return
+        oprot.writeStructBegin('ReturnOne')
+        if self.zeta1 is not None:
+            oprot.writeFieldBegin('zeta1', TType.STRING, 1)
+            oprot.writeString(self.zeta1.encode('utf-8') if sys.version_info[0] == 2 else self.zeta1)
+            oprot.writeFieldEnd()
+        if self.zeta2 is not None:
+            oprot.writeFieldBegin('zeta2', TType.STRING, 2)
+            oprot.writeString(self.zeta2.encode('utf-8') if sys.version_info[0] == 2 else self.zeta2)
+            oprot.writeFieldEnd()
+        if self.alpha is not None:
+            oprot.writeFieldBegin('alpha', TType.STRING, 3)
+            oprot.writeString(self.alpha.encode('utf-8') if sys.version_info[0] == 2 else self.alpha)
+            oprot.writeFieldEnd()
+        if self.beta1 is not None:
+            oprot.writeFieldBegin('beta1', TType.STRING, 4)
+            oprot.writeString(self.beta1.encode('utf-8') if sys.version_info[0] == 2 else self.beta1)
+            oprot.writeFieldEnd()
+        if self.beta2 is not None:
+            oprot.writeFieldBegin('beta2', TType.STRING, 5)
+            oprot.writeString(self.beta2.encode('utf-8') if sys.version_info[0] == 2 else self.beta2)
+            oprot.writeFieldEnd()
+        if self.epsilon is not None:
+            oprot.writeFieldBegin('epsilon', TType.STRING, 6)
+            oprot.writeString(self.epsilon.encode('utf-8') if sys.version_info[0] == 2 else self.epsilon)
+            oprot.writeFieldEnd()
+        if self.e is not None:
+            oprot.writeFieldBegin('e', TType.STRING, 7)
+            oprot.writeString(self.e.encode('utf-8') if sys.version_info[0] == 2 else self.e)
+            oprot.writeFieldEnd()
+        if self.c is not None:
+            oprot.writeFieldBegin('c', TType.STRING, 8)
+            oprot.writeString(self.c.encode('utf-8') if sys.version_info[0] == 2 else self.c)
+            oprot.writeFieldEnd()
+        if self.r is not None:
+            oprot.writeFieldBegin('r', TType.STRING, 9)
+            oprot.writeString(self.r.encode('utf-8') if sys.version_info[0] == 2 else self.r)
+            oprot.writeFieldEnd()
+        if self.roi is not None:
+            oprot.writeFieldBegin('roi', TType.STRING, 10)
+            oprot.writeString(self.roi.encode('utf-8') if sys.version_info[0] == 2 else self.roi)
+            oprot.writeFieldEnd()
+        if self.omega is not None:
+            oprot.writeFieldBegin('omega', TType.STRING, 11)
+            oprot.writeString(self.omega.encode('utf-8') if sys.version_info[0] == 2 else self.omega)
+            oprot.writeFieldEnd()
+        if self.sigma1 is not None:
+            oprot.writeFieldBegin('sigma1', TType.STRING, 12)
+            oprot.writeString(self.sigma1.encode('utf-8') if sys.version_info[0] == 2 else self.sigma1)
+            oprot.writeFieldEnd()
+        if self.sigma2 is not None:
+            oprot.writeFieldBegin('sigma2', TType.STRING, 13)
+            oprot.writeString(self.sigma2.encode('utf-8') if sys.version_info[0] == 2 else self.sigma2)
+            oprot.writeFieldEnd()
+        if self.delta is not None:
+            oprot.writeFieldBegin('delta', TType.STRING, 14)
+            oprot.writeString(self.delta.encode('utf-8') if sys.version_info[0] == 2 else self.delta)
+            oprot.writeFieldEnd()
+        if self.xiv is not None:
+            oprot.writeFieldBegin('xiv', TType.STRING, 15)
+            oprot.writeString(self.xiv.encode('utf-8') if sys.version_info[0] == 2 else self.xiv)
+            oprot.writeFieldEnd()
+        if self.sxiv is not None:
+            oprot.writeFieldBegin('sxiv', TType.STRING, 16)
+            oprot.writeString(self.sxiv.encode('utf-8') if sys.version_info[0] == 2 else self.sxiv)
+            oprot.writeFieldEnd()
+        if self.szeta1 is not None:
+            oprot.writeFieldBegin('szeta1', TType.STRING, 17)
+            oprot.writeString(self.szeta1.encode('utf-8') if sys.version_info[0] == 2 else self.szeta1)
+            oprot.writeFieldEnd()
+        if self.szeta2 is not None:
+            oprot.writeFieldBegin('szeta2', TType.STRING, 18)
+            oprot.writeString(self.szeta2.encode('utf-8') if sys.version_info[0] == 2 else self.szeta2)
+            oprot.writeFieldEnd()
+        oprot.writeFieldStop()
+        oprot.writeStructEnd()
+
+    def validate(self):
+        return
+
+    def __repr__(self):
+        L = ['%s=%r' % (key, value)
+             for key, value in self.__dict__.items()]
+        return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        return not (self == other)
+
+
+class ReturnTwo(object):
+    """
+    Attributes:
+     - omdelta
+     - hashres
+
+    """
+
+
+    def __init__(self, omdelta=None, hashres=None,):
+        self.omdelta = omdelta
+        self.hashres = hashres
+
+    def read(self, iprot):
+        if iprot._fast_decode is not None and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None:
+            iprot._fast_decode(self, iprot, [self.__class__, self.thrift_spec])
+            return
+        iprot.readStructBegin()
+        while True:
+            (fname, ftype, fid) = iprot.readFieldBegin()
+            if ftype == TType.STOP:
+                break
+            if fid == 1:
+                if ftype == TType.STRING:
+                    self.omdelta = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 2:
+                if ftype == TType.STRING:
+                    self.hashres = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            else:
+                iprot.skip(ftype)
+            iprot.readFieldEnd()
+        iprot.readStructEnd()
+
+    def write(self, oprot):
+        if oprot._fast_encode is not None and self.thrift_spec is not None:
+            oprot.trans.write(oprot._fast_encode(self, [self.__class__, self.thrift_spec]))
+            return
+        oprot.writeStructBegin('ReturnTwo')
+        if self.omdelta is not None:
+            oprot.writeFieldBegin('omdelta', TType.STRING, 1)
+            oprot.writeString(self.omdelta.encode('utf-8') if sys.version_info[0] == 2 else self.omdelta)
+            oprot.writeFieldEnd()
+        if self.hashres is not None:
+            oprot.writeFieldBegin('hashres', TType.STRING, 2)
+            oprot.writeString(self.hashres.encode('utf-8') if sys.version_info[0] == 2 else self.hashres)
+            oprot.writeFieldEnd()
+        oprot.writeFieldStop()
+        oprot.writeStructEnd()
+
+    def validate(self):
+        return
+
+    def __repr__(self):
+        L = ['%s=%r' % (key, value)
+             for key, value in self.__dict__.items()]
+        return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        return not (self == other)
+
+
+class ProtocolTwo(object):
+    """
+    Attributes:
+     - omega
+     - delta
+     - L
+     - sg
+     - roi
+     - sy
+     - sigma1
+     - sigma2
+     - szeta1
+     - szeta2
+     - sh
+     - m
+
+    """
+
+
+    def __init__(self, omega=None, delta=None, L=None, sg=None, roi=None, sy=None, sigma1=None, sigma2=None, szeta1=None, szeta2=None, sh=None, m=None,):
+        self.omega = omega
+        self.delta = delta
+        self.L = L
+        self.sg = sg
+        self.roi = roi
+        self.sy = sy
+        self.sigma1 = sigma1
+        self.sigma2 = sigma2
+        self.szeta1 = szeta1
+        self.szeta2 = szeta2
+        self.sh = sh
+        self.m = m
+
+    def read(self, iprot):
+        if iprot._fast_decode is not None and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None:
+            iprot._fast_decode(self, iprot, [self.__class__, self.thrift_spec])
+            return
+        iprot.readStructBegin()
+        while True:
+            (fname, ftype, fid) = iprot.readFieldBegin()
+            if ftype == TType.STOP:
+                break
+            if fid == 1:
+                if ftype == TType.STRING:
+                    self.omega = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 2:
+                if ftype == TType.STRING:
+                    self.delta = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 3:
+                if ftype == TType.STRING:
+                    self.L = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 4:
+                if ftype == TType.STRING:
+                    self.sg = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 5:
+                if ftype == TType.STRING:
+                    self.roi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 6:
+                if ftype == TType.STRING:
+                    self.sy = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 7:
+                if ftype == TType.STRING:
+                    self.sigma1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 8:
+                if ftype == TType.STRING:
+                    self.sigma2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 9:
+                if ftype == TType.STRING:
+                    self.szeta1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 10:
+                if ftype == TType.STRING:
+                    self.szeta2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 11:
+                if ftype == TType.STRING:
+                    self.sh = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 12:
+                if ftype == TType.STRING:
+                    self.m = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            else:
+                iprot.skip(ftype)
+            iprot.readFieldEnd()
+        iprot.readStructEnd()
+
+    def write(self, oprot):
+        if oprot._fast_encode is not None and self.thrift_spec is not None:
+            oprot.trans.write(oprot._fast_encode(self, [self.__class__, self.thrift_spec]))
+            return
+        oprot.writeStructBegin('ProtocolTwo')
+        if self.omega is not None:
+            oprot.writeFieldBegin('omega', TType.STRING, 1)
+            oprot.writeString(self.omega.encode('utf-8') if sys.version_info[0] == 2 else self.omega)
+            oprot.writeFieldEnd()
+        if self.delta is not None:
+            oprot.writeFieldBegin('delta', TType.STRING, 2)
+            oprot.writeString(self.delta.encode('utf-8') if sys.version_info[0] == 2 else self.delta)
+            oprot.writeFieldEnd()
+        if self.L is not None:
+            oprot.writeFieldBegin('L', TType.STRING, 3)
+            oprot.writeString(self.L.encode('utf-8') if sys.version_info[0] == 2 else self.L)
+            oprot.writeFieldEnd()
+        if self.sg is not None:
+            oprot.writeFieldBegin('sg', TType.STRING, 4)
+            oprot.writeString(self.sg.encode('utf-8') if sys.version_info[0] == 2 else self.sg)
+            oprot.writeFieldEnd()
+        if self.roi is not None:
+            oprot.writeFieldBegin('roi', TType.STRING, 5)
+            oprot.writeString(self.roi.encode('utf-8') if sys.version_info[0] == 2 else self.roi)
+            oprot.writeFieldEnd()
+        if self.sy is not None:
+            oprot.writeFieldBegin('sy', TType.STRING, 6)
+            oprot.writeString(self.sy.encode('utf-8') if sys.version_info[0] == 2 else self.sy)
+            oprot.writeFieldEnd()
+        if self.sigma1 is not None:
+            oprot.writeFieldBegin('sigma1', TType.STRING, 7)
+            oprot.writeString(self.sigma1.encode('utf-8') if sys.version_info[0] == 2 else self.sigma1)
+            oprot.writeFieldEnd()
+        if self.sigma2 is not None:
+            oprot.writeFieldBegin('sigma2', TType.STRING, 8)
+            oprot.writeString(self.sigma2.encode('utf-8') if sys.version_info[0] == 2 else self.sigma2)
+            oprot.writeFieldEnd()
+        if self.szeta1 is not None:
+            oprot.writeFieldBegin('szeta1', TType.STRING, 9)
+            oprot.writeString(self.szeta1.encode('utf-8') if sys.version_info[0] == 2 else self.szeta1)
+            oprot.writeFieldEnd()
+        if self.szeta2 is not None:
+            oprot.writeFieldBegin('szeta2', TType.STRING, 10)
+            oprot.writeString(self.szeta2.encode('utf-8') if sys.version_info[0] == 2 else self.szeta2)
+            oprot.writeFieldEnd()
+        if self.sh is not None:
+            oprot.writeFieldBegin('sh', TType.STRING, 11)
+            oprot.writeString(self.sh.encode('utf-8') if sys.version_info[0] == 2 else self.sh)
+            oprot.writeFieldEnd()
+        if self.m is not None:
+            oprot.writeFieldBegin('m', TType.STRING, 12)
+            oprot.writeString(self.m.encode('utf-8') if sys.version_info[0] == 2 else self.m)
+            oprot.writeFieldEnd()
+        oprot.writeFieldStop()
+        oprot.writeStructEnd()
+
+    def validate(self):
+        return
+
+    def __repr__(self):
+        L = ['%s=%r' % (key, value)
+             for key, value in self.__dict__.items()]
+        return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        return not (self == other)
+
+
 class PublicParame(object):
     """
     Attributes:
@@ -92,32 +881,76 @@ class PublicParame(object):
      - h
      - x
      - y
-     - z
      - gamma
      - xi
+     - z
+     - zu
+     - v
+     - u
+     - d
+     - s1
+     - s2
+     - t1
+     - t2
+     - t3
+     - t4
+     - t5
+     - z1
+     - z2
+     - a
+     - b1
+     - b2
      - sg
      - sh
      - sy
-     - sz
      - sxi
+     - sz
+     - szu
+     - sz1
+     - sz2
+     - sa
+     - sb1
+     - sb2
 
     """
 
 
-    def __init__(self, p=None, g=None, h=None, x=None, y=None, z=None, gamma=None, xi=None, sg=None, sh=None, sy=None, sz=None, sxi=None,):
+    def __init__(self, p=None, g=None, h=None, x=None, y=None, gamma=None, xi=None, z=None, zu=None, v=None, u=None, d=None, s1=None, s2=None, t1=None, t2=None, t3=None, t4=None, t5=None, z1=None, z2=None, a=None, b1=None, b2=None, sg=None, sh=None, sy=None, sxi=None, sz=None, szu=None, sz1=None, sz2=None, sa=None, sb1=None, sb2=None,):
         self.p = p
         self.g = g
         self.h = h
         self.x = x
         self.y = y
-        self.z = z
         self.gamma = gamma
         self.xi = xi
+        self.z = z
+        self.zu = zu
+        self.v = v
+        self.u = u
+        self.d = d
+        self.s1 = s1
+        self.s2 = s2
+        self.t1 = t1
+        self.t2 = t2
+        self.t3 = t3
+        self.t4 = t4
+        self.t5 = t5
+        self.z1 = z1
+        self.z2 = z2
+        self.a = a
+        self.b1 = b1
+        self.b2 = b2
         self.sg = sg
         self.sh = sh
         self.sy = sy
-        self.sz = sz
         self.sxi = sxi
+        self.sz = sz
+        self.szu = szu
+        self.sz1 = sz1
+        self.sz2 = sz2
+        self.sa = sa
+        self.sb1 = sb1
+        self.sb2 = sb2
 
     def read(self, iprot):
         if iprot._fast_decode is not None and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None:
@@ -155,42 +988,152 @@ class PublicParame(object):
                     iprot.skip(ftype)
             elif fid == 6:
                 if ftype == TType.STRING:
-                    self.z = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.gamma = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 7:
                 if ftype == TType.STRING:
-                    self.gamma = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.xi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 8:
                 if ftype == TType.STRING:
-                    self.xi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.z = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 9:
                 if ftype == TType.STRING:
-                    self.sg = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.zu = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 10:
                 if ftype == TType.STRING:
-                    self.sh = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.v = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 11:
                 if ftype == TType.STRING:
-                    self.sy = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.u = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 12:
                 if ftype == TType.STRING:
-                    self.sz = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.d = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 13:
                 if ftype == TType.STRING:
+                    self.s1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 14:
+                if ftype == TType.STRING:
+                    self.s2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 15:
+                if ftype == TType.STRING:
+                    self.t1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 16:
+                if ftype == TType.STRING:
+                    self.t2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 17:
+                if ftype == TType.STRING:
+                    self.t3 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 18:
+                if ftype == TType.STRING:
+                    self.t4 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 19:
+                if ftype == TType.STRING:
+                    self.t5 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 20:
+                if ftype == TType.STRING:
+                    self.z1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 21:
+                if ftype == TType.STRING:
+                    self.z2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 22:
+                if ftype == TType.STRING:
+                    self.a = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 23:
+                if ftype == TType.STRING:
+                    self.b1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 24:
+                if ftype == TType.STRING:
+                    self.b2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 25:
+                if ftype == TType.STRING:
+                    self.sg = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 26:
+                if ftype == TType.STRING:
+                    self.sh = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 27:
+                if ftype == TType.STRING:
+                    self.sy = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 28:
+                if ftype == TType.STRING:
                     self.sxi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 29:
+                if ftype == TType.STRING:
+                    self.sz = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 30:
+                if ftype == TType.STRING:
+                    self.szu = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 31:
+                if ftype == TType.STRING:
+                    self.sz1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 32:
+                if ftype == TType.STRING:
+                    self.sz2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 33:
+                if ftype == TType.STRING:
+                    self.sa = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 34:
+                if ftype == TType.STRING:
+                    self.sb1 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                else:
+                    iprot.skip(ftype)
+            elif fid == 35:
+                if ftype == TType.STRING:
+                    self.sb2 = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             else:
@@ -223,37 +1166,125 @@ class PublicParame(object):
             oprot.writeFieldBegin('y', TType.STRING, 5)
             oprot.writeString(self.y.encode('utf-8') if sys.version_info[0] == 2 else self.y)
             oprot.writeFieldEnd()
-        if self.z is not None:
-            oprot.writeFieldBegin('z', TType.STRING, 6)
-            oprot.writeString(self.z.encode('utf-8') if sys.version_info[0] == 2 else self.z)
-            oprot.writeFieldEnd()
         if self.gamma is not None:
-            oprot.writeFieldBegin('gamma', TType.STRING, 7)
+            oprot.writeFieldBegin('gamma', TType.STRING, 6)
             oprot.writeString(self.gamma.encode('utf-8') if sys.version_info[0] == 2 else self.gamma)
             oprot.writeFieldEnd()
         if self.xi is not None:
-            oprot.writeFieldBegin('xi', TType.STRING, 8)
+            oprot.writeFieldBegin('xi', TType.STRING, 7)
             oprot.writeString(self.xi.encode('utf-8') if sys.version_info[0] == 2 else self.xi)
             oprot.writeFieldEnd()
+        if self.z is not None:
+            oprot.writeFieldBegin('z', TType.STRING, 8)
+            oprot.writeString(self.z.encode('utf-8') if sys.version_info[0] == 2 else self.z)
+            oprot.writeFieldEnd()
+        if self.zu is not None:
+            oprot.writeFieldBegin('zu', TType.STRING, 9)
+            oprot.writeString(self.zu.encode('utf-8') if sys.version_info[0] == 2 else self.zu)
+            oprot.writeFieldEnd()
+        if self.v is not None:
+            oprot.writeFieldBegin('v', TType.STRING, 10)
+            oprot.writeString(self.v.encode('utf-8') if sys.version_info[0] == 2 else self.v)
+            oprot.writeFieldEnd()
+        if self.u is not None:
+            oprot.writeFieldBegin('u', TType.STRING, 11)
+            oprot.writeString(self.u.encode('utf-8') if sys.version_info[0] == 2 else self.u)
+            oprot.writeFieldEnd()
+        if self.d is not None:
+            oprot.writeFieldBegin('d', TType.STRING, 12)
+            oprot.writeString(self.d.encode('utf-8') if sys.version_info[0] == 2 else self.d)
+            oprot.writeFieldEnd()
+        if self.s1 is not None:
+            oprot.writeFieldBegin('s1', TType.STRING, 13)
+            oprot.writeString(self.s1.encode('utf-8') if sys.version_info[0] == 2 else self.s1)
+            oprot.writeFieldEnd()
+        if self.s2 is not None:
+            oprot.writeFieldBegin('s2', TType.STRING, 14)
+            oprot.writeString(self.s2.encode('utf-8') if sys.version_info[0] == 2 else self.s2)
+            oprot.writeFieldEnd()
+        if self.t1 is not None:
+            oprot.writeFieldBegin('t1', TType.STRING, 15)
+            oprot.writeString(self.t1.encode('utf-8') if sys.version_info[0] == 2 else self.t1)
+            oprot.writeFieldEnd()
+        if self.t2 is not None:
+            oprot.writeFieldBegin('t2', TType.STRING, 16)
+            oprot.writeString(self.t2.encode('utf-8') if sys.version_info[0] == 2 else self.t2)
+            oprot.writeFieldEnd()
+        if self.t3 is not None:
+            oprot.writeFieldBegin('t3', TType.STRING, 17)
+            oprot.writeString(self.t3.encode('utf-8') if sys.version_info[0] == 2 else self.t3)
+            oprot.writeFieldEnd()
+        if self.t4 is not None:
+            oprot.writeFieldBegin('t4', TType.STRING, 18)
+            oprot.writeString(self.t4.encode('utf-8') if sys.version_info[0] == 2 else self.t4)
+            oprot.writeFieldEnd()
+        if self.t5 is not None:
+            oprot.writeFieldBegin('t5', TType.STRING, 19)
+            oprot.writeString(self.t5.encode('utf-8') if sys.version_info[0] == 2 else self.t5)
+            oprot.writeFieldEnd()
+        if self.z1 is not None:
+            oprot.writeFieldBegin('z1', TType.STRING, 20)
+            oprot.writeString(self.z1.encode('utf-8') if sys.version_info[0] == 2 else self.z1)
+            oprot.writeFieldEnd()
+        if self.z2 is not None:
+            oprot.writeFieldBegin('z2', TType.STRING, 21)
+            oprot.writeString(self.z2.encode('utf-8') if sys.version_info[0] == 2 else self.z2)
+            oprot.writeFieldEnd()
+        if self.a is not None:
+            oprot.writeFieldBegin('a', TType.STRING, 22)
+            oprot.writeString(self.a.encode('utf-8') if sys.version_info[0] == 2 else self.a)
+            oprot.writeFieldEnd()
+        if self.b1 is not None:
+            oprot.writeFieldBegin('b1', TType.STRING, 23)
+            oprot.writeString(self.b1.encode('utf-8') if sys.version_info[0] == 2 else self.b1)
+            oprot.writeFieldEnd()
+        if self.b2 is not None:
+            oprot.writeFieldBegin('b2', TType.STRING, 24)
+            oprot.writeString(self.b2.encode('utf-8') if sys.version_info[0] == 2 else self.b2)
+            oprot.writeFieldEnd()
         if self.sg is not None:
-            oprot.writeFieldBegin('sg', TType.STRING, 9)
+            oprot.writeFieldBegin('sg', TType.STRING, 25)
             oprot.writeString(self.sg.encode('utf-8') if sys.version_info[0] == 2 else self.sg)
             oprot.writeFieldEnd()
         if self.sh is not None:
-            oprot.writeFieldBegin('sh', TType.STRING, 10)
+            oprot.writeFieldBegin('sh', TType.STRING, 26)
             oprot.writeString(self.sh.encode('utf-8') if sys.version_info[0] == 2 else self.sh)
             oprot.writeFieldEnd()
         if self.sy is not None:
-            oprot.writeFieldBegin('sy', TType.STRING, 11)
+            oprot.writeFieldBegin('sy', TType.STRING, 27)
             oprot.writeString(self.sy.encode('utf-8') if sys.version_info[0] == 2 else self.sy)
             oprot.writeFieldEnd()
+        if self.sxi is not None:
+            oprot.writeFieldBegin('sxi', TType.STRING, 28)
+            oprot.writeString(self.sxi.encode('utf-8') if sys.version_info[0] == 2 else self.sxi)
+            oprot.writeFieldEnd()
         if self.sz is not None:
-            oprot.writeFieldBegin('sz', TType.STRING, 12)
+            oprot.writeFieldBegin('sz', TType.STRING, 29)
             oprot.writeString(self.sz.encode('utf-8') if sys.version_info[0] == 2 else self.sz)
             oprot.writeFieldEnd()
-        if self.sxi is not None:
-            oprot.writeFieldBegin('sxi', TType.STRING, 13)
-            oprot.writeString(self.sxi.encode('utf-8') if sys.version_info[0] == 2 else self.sxi)
+        if self.szu is not None:
+            oprot.writeFieldBegin('szu', TType.STRING, 30)
+            oprot.writeString(self.szu.encode('utf-8') if sys.version_info[0] == 2 else self.szu)
+            oprot.writeFieldEnd()
+        if self.sz1 is not None:
+            oprot.writeFieldBegin('sz1', TType.STRING, 31)
+            oprot.writeString(self.sz1.encode('utf-8') if sys.version_info[0] == 2 else self.sz1)
+            oprot.writeFieldEnd()
+        if self.sz2 is not None:
+            oprot.writeFieldBegin('sz2', TType.STRING, 32)
+            oprot.writeString(self.sz2.encode('utf-8') if sys.version_info[0] == 2 else self.sz2)
+            oprot.writeFieldEnd()
+        if self.sa is not None:
+            oprot.writeFieldBegin('sa', TType.STRING, 33)
+            oprot.writeString(self.sa.encode('utf-8') if sys.version_info[0] == 2 else self.sa)
+            oprot.writeFieldEnd()
+        if self.sb1 is not None:
+            oprot.writeFieldBegin('sb1', TType.STRING, 34)
+            oprot.writeString(self.sb1.encode('utf-8') if sys.version_info[0] == 2 else self.sb1)
+            oprot.writeFieldEnd()
+        if self.sb2 is not None:
+            oprot.writeFieldBegin('sb2', TType.STRING, 35)
+            oprot.writeString(self.sb2.encode('utf-8') if sys.version_info[0] == 2 else self.sb2)
             oprot.writeFieldEnd()
         oprot.writeFieldStop()
         oprot.writeStructEnd()
@@ -277,6 +1308,77 @@ InitParame.thrift_spec = (
     (1, TType.STRING, 'L', 'UTF8', None, ),  # 1
     (2, TType.I16, 'N', None, None, ),  # 2
 )
+all_structs.append(ProtocolOne)
+ProtocolOne.thrift_spec = (
+    None,  # 0
+    (1, TType.STRING, 't1', 'UTF8', None, ),  # 1
+    (2, TType.STRING, 't2', 'UTF8', None, ),  # 2
+    (3, TType.STRING, 't3', 'UTF8', None, ),  # 3
+    (4, TType.STRING, 't4', 'UTF8', None, ),  # 4
+    (5, TType.STRING, 't5', 'UTF8', None, ),  # 5
+    (6, TType.STRING, 'gamma', 'UTF8', None, ),  # 6
+    (7, TType.STRING, 'sz1', 'UTF8', None, ),  # 7
+    (8, TType.STRING, 'sz', 'UTF8', None, ),  # 8
+    (9, TType.STRING, 'sa', 'UTF8', None, ),  # 9
+    (10, TType.STRING, 'sb1', 'UTF8', None, ),  # 10
+    (11, TType.STRING, 'sb2', 'UTF8', None, ),  # 11
+    (12, TType.STRING, 'sg', 'UTF8', None, ),  # 12
+    (13, TType.STRING, 'sh', 'UTF8', None, ),  # 13
+    (14, TType.STRING, 'sy', 'UTF8', None, ),  # 14
+    (15, TType.STRING, 'M', 'UTF8', None, ),  # 15
+    (16, TType.STRING, 'L', 'UTF8', None, ),  # 16
+    (17, TType.STRING, 'd', 'UTF8', None, ),  # 17
+    (18, TType.STRING, 'u', 'UTF8', None, ),  # 18
+    (19, TType.STRING, 'x', 'UTF8', None, ),  # 19
+    (20, TType.STRING, 's1', 'UTF8', None, ),  # 20
+    (21, TType.STRING, 's2', 'UTF8', None, ),  # 21
+    (22, TType.STRING, 'v', 'UTF8', None, ),  # 22
+    (23, TType.STRING, 'sxi', 'UTF8', None, ),  # 23
+)
+all_structs.append(ReturnOne)
+ReturnOne.thrift_spec = (
+    None,  # 0
+    (1, TType.STRING, 'zeta1', 'UTF8', None, ),  # 1
+    (2, TType.STRING, 'zeta2', 'UTF8', None, ),  # 2
+    (3, TType.STRING, 'alpha', 'UTF8', None, ),  # 3
+    (4, TType.STRING, 'beta1', 'UTF8', None, ),  # 4
+    (5, TType.STRING, 'beta2', 'UTF8', None, ),  # 5
+    (6, TType.STRING, 'epsilon', 'UTF8', None, ),  # 6
+    (7, TType.STRING, 'e', 'UTF8', None, ),  # 7
+    (8, TType.STRING, 'c', 'UTF8', None, ),  # 8
+    (9, TType.STRING, 'r', 'UTF8', None, ),  # 9
+    (10, TType.STRING, 'roi', 'UTF8', None, ),  # 10
+    (11, TType.STRING, 'omega', 'UTF8', None, ),  # 11
+    (12, TType.STRING, 'sigma1', 'UTF8', None, ),  # 12
+    (13, TType.STRING, 'sigma2', 'UTF8', None, ),  # 13
+    (14, TType.STRING, 'delta', 'UTF8', None, ),  # 14
+    (15, TType.STRING, 'xiv', 'UTF8', None, ),  # 15
+    (16, TType.STRING, 'sxiv', 'UTF8', None, ),  # 16
+    (17, TType.STRING, 'szeta1', 'UTF8', None, ),  # 17
+    (18, TType.STRING, 'szeta2', 'UTF8', None, ),  # 18
+)
+all_structs.append(ReturnTwo)
+ReturnTwo.thrift_spec = (
+    None,  # 0
+    (1, TType.STRING, 'omdelta', 'UTF8', None, ),  # 1
+    (2, TType.STRING, 'hashres', 'UTF8', None, ),  # 2
+)
+all_structs.append(ProtocolTwo)
+ProtocolTwo.thrift_spec = (
+    None,  # 0
+    (1, TType.STRING, 'omega', 'UTF8', None, ),  # 1
+    (2, TType.STRING, 'delta', 'UTF8', None, ),  # 2
+    (3, TType.STRING, 'L', 'UTF8', None, ),  # 3
+    (4, TType.STRING, 'sg', 'UTF8', None, ),  # 4
+    (5, TType.STRING, 'roi', 'UTF8', None, ),  # 5
+    (6, TType.STRING, 'sy', 'UTF8', None, ),  # 6
+    (7, TType.STRING, 'sigma1', 'UTF8', None, ),  # 7
+    (8, TType.STRING, 'sigma2', 'UTF8', None, ),  # 8
+    (9, TType.STRING, 'szeta1', 'UTF8', None, ),  # 9
+    (10, TType.STRING, 'szeta2', 'UTF8', None, ),  # 10
+    (11, TType.STRING, 'sh', 'UTF8', None, ),  # 11
+    (12, TType.STRING, 'm', 'UTF8', None, ),  # 12
+)
 all_structs.append(PublicParame)
 PublicParame.thrift_spec = (
     None,  # 0
@@ -285,14 +1387,36 @@ PublicParame.thrift_spec = (
     (3, TType.STRING, 'h', 'UTF8', None, ),  # 3
     (4, TType.STRING, 'x', 'UTF8', None, ),  # 4
     (5, TType.STRING, 'y', 'UTF8', None, ),  # 5
-    (6, TType.STRING, 'z', 'UTF8', None, ),  # 6
-    (7, TType.STRING, 'gamma', 'UTF8', None, ),  # 7
-    (8, TType.STRING, 'xi', 'UTF8', None, ),  # 8
-    (9, TType.STRING, 'sg', 'UTF8', None, ),  # 9
-    (10, TType.STRING, 'sh', 'UTF8', None, ),  # 10
-    (11, TType.STRING, 'sy', 'UTF8', None, ),  # 11
-    (12, TType.STRING, 'sz', 'UTF8', None, ),  # 12
-    (13, TType.STRING, 'sxi', 'UTF8', None, ),  # 13
+    (6, TType.STRING, 'gamma', 'UTF8', None, ),  # 6
+    (7, TType.STRING, 'xi', 'UTF8', None, ),  # 7
+    (8, TType.STRING, 'z', 'UTF8', None, ),  # 8
+    (9, TType.STRING, 'zu', 'UTF8', None, ),  # 9
+    (10, TType.STRING, 'v', 'UTF8', None, ),  # 10
+    (11, TType.STRING, 'u', 'UTF8', None, ),  # 11
+    (12, TType.STRING, 'd', 'UTF8', None, ),  # 12
+    (13, TType.STRING, 's1', 'UTF8', None, ),  # 13
+    (14, TType.STRING, 's2', 'UTF8', None, ),  # 14
+    (15, TType.STRING, 't1', 'UTF8', None, ),  # 15
+    (16, TType.STRING, 't2', 'UTF8', None, ),  # 16
+    (17, TType.STRING, 't3', 'UTF8', None, ),  # 17
+    (18, TType.STRING, 't4', 'UTF8', None, ),  # 18
+    (19, TType.STRING, 't5', 'UTF8', None, ),  # 19
+    (20, TType.STRING, 'z1', 'UTF8', None, ),  # 20
+    (21, TType.STRING, 'z2', 'UTF8', None, ),  # 21
+    (22, TType.STRING, 'a', 'UTF8', None, ),  # 22
+    (23, TType.STRING, 'b1', 'UTF8', None, ),  # 23
+    (24, TType.STRING, 'b2', 'UTF8', None, ),  # 24
+    (25, TType.STRING, 'sg', 'UTF8', None, ),  # 25
+    (26, TType.STRING, 'sh', 'UTF8', None, ),  # 26
+    (27, TType.STRING, 'sy', 'UTF8', None, ),  # 27
+    (28, TType.STRING, 'sxi', 'UTF8', None, ),  # 28
+    (29, TType.STRING, 'sz', 'UTF8', None, ),  # 29
+    (30, TType.STRING, 'szu', 'UTF8', None, ),  # 30
+    (31, TType.STRING, 'sz1', 'UTF8', None, ),  # 31
+    (32, TType.STRING, 'sz2', 'UTF8', None, ),  # 32
+    (33, TType.STRING, 'sa', 'UTF8', None, ),  # 33
+    (34, TType.STRING, 'sb1', 'UTF8', None, ),  # 34
+    (35, TType.STRING, 'sb2', 'UTF8', None, ),  # 35
 )
 fix_spec(all_structs)
 del all_structs

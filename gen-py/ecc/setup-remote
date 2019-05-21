@@ -26,6 +26,8 @@ if len(sys.argv) <= 1 or sys.argv[1] == '--help':
     print('Functions:')
     print('  string sayHello()')
     print('  PublicParame init(InitParame initParame)')
+    print('  ReturnOne execOne(ProtocolOne protocolone)')
+    print('  ReturnTwo execTwo(ProtocolTwo protocoltwo)')
     print('')
     sys.exit(0)
 
@@ -116,6 +118,18 @@ elif cmd == 'init':
         print('init requires 1 args')
         sys.exit(1)
     pp.pprint(client.init(eval(args[0]),))
+
+elif cmd == 'execOne':
+    if len(args) != 1:
+        print('execOne requires 1 args')
+        sys.exit(1)
+    pp.pprint(client.execOne(eval(args[0]),))
+
+elif cmd == 'execTwo':
+    if len(args) != 1:
+        print('execTwo requires 1 args')
+        sys.exit(1)
+    pp.pprint(client.execTwo(eval(args[0]),))
 
 else:
     print('Unrecognized method %s' % cmd)

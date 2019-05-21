@@ -45,10 +45,10 @@
       <div class="content-right-container">
         <div class="content-right">
           <p><span class="article-number">User</span>
-            &#955; <font color="red">(private)</font> = &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class=""><input id="gamma"></input></span><br>
-            &#958; (public) = g<sup>&#955;</sup> = <span class=""><input id="xi"></input></span><br>
-            &#918; = &#919;<sub>1</sub>(p,q,g,h,y) = <span class=""><input id="z"></input></span><br>
-            &#918;<sub>u</sub> = &#918;<sup>1\&#955;</sup> = <span class=""><input id="zu"></input><input id="y" type="hidden"></input></span><br>
+            &#955; <font color="red">(private)</font> = &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class=""><input id="gamma" value=<%= gamma %>></input></span><br>
+            &#958; (public) = g<sup>&#955;</sup> = <span class=""><input id="xi" value=<%= xi %>></input></span><br>
+            &#918; = &#919;<sub>1</sub>(p,q,g,h,y) = <span class=""><input id="z" value="=<%= z%>"></input></span><br>
+            &#918;<sub>u</sub> = &#918;<sup>1\&#955;</sup> = <span class=""><input id="zu" value=<%= zu%>></input><input id="y" type="hidden"></input></span><br>
           </p>
           <!--  <a href = "javascript: void(0)" class="" id = "">Send</a> <br> -->
         </div>
@@ -62,15 +62,15 @@
           <p> <span class="article-number">Issuer</span>
             Pre-set parameters: <br>
             <label for="description"> &#965;&nbsp; = </label>
-            <span class=""><input id="upsilon"></input></span><br>
+            <span class=""><input id="upsilon" value=<%=v %>></input></span><br>
             <label for="description">&#956;&nbsp; = </label>
-            <span class=""><input id="mu"></input></span><br>
+            <span class=""><input id="mu" value=<%=u %>></input></span><br>
             <label for="description">s<sub>1</sub> = </label>
-            <span class=""><input id="s1"></input></span><br>
+            <span class=""><input id="s1" value=<%=s1 %>></input></span><br>
             <label for="description">s<sub>2</sub> = </label>
-            <span class=""><input id="s2"></input></span><br>
+            <span class=""><input id="s2" value=<%=s2 %>></input></span><br>
             <label for="description">d = </label>
-            <span class=""><input id="d"></input></span><br>
+            <span class=""><input id="d" value=<%=d %>></input></span><br>
             <hr>
             <a href="javascript: void(0)" class="" id="issuerExecuteTwo">Execute</a> <br><br>
             <label class="textdescription">z<sub>1</sub> = yt<sup>&#965;</sup> = </label>
@@ -99,11 +99,11 @@
         <div class="content-right">
           <p class="sp">
             Pre-set parameters: <br>
-            t<sub>1</sub> = <span class=""><input id="t1"></input></span><br>
-            t<sub>2</sub> = <span class=""><input id="t2"></input></span><br>
-            t<sub>3</sub> = <span class=""><input id="t3"></input></span><br>
-            t<sub>4</sub> = <span class=""><input id="t4"></input></span><br>
-            t<sub>5</sub> = <span class=""><input id="t5"></input></span><br>
+            t<sub>1</sub> = <span class=""><input id="t1" value=<%=t1 %>></input></span><br>
+            t<sub>2</sub> = <span class=""><input id="t2" value=<%=t2 %>></input></span><br>
+            t<sub>3</sub> = <span class=""><input id="t3" value=<%=t3 %>></input></span><br>
+            t<sub>4</sub> = <span class=""><input id="t4" value=<%=t4 %>></input></span><br>
+            t<sub>5</sub> = <span class=""><input id="t5" value=<%=t5 %>></input></span><br>
             <hr>
             <a href="javascript: void(0)" class="" id="userExecuteThree">Execute</a><br><br>
             <label class="textdescription"><button id="button" style="display:none">Set</button> m = </label><span class=""><input id="m"></input></span>
@@ -187,7 +187,7 @@
             connect it to the source of the user without the help of the blockchain.
             <ul>
               <li>User's name: <br> <input id="username1" value="" style="border-bottom: 0px"></input></li>
-              <li>Issuer's public key: <br> <input id="ipk1" value="" style="border-bottom: 0px"></input></li>
+              <li>Issuer's public key: <br> <input id="ipk1" value=<%= y%> style="border-bottom: 0px"></input></li>
               <li>User's Credential &#950;<sub>1</sub>: <input id="zeta_1" style="border-bottom: 0px"></input>
               </li>
             </ul>

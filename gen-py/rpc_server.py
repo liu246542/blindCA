@@ -1,7 +1,7 @@
 import json
 
 from ecc import setup
-from blind_util import initHandler
+from blind_util import initHandler, oneHandler, twoHandler
 from charm.toolbox.eccurve import secp256k1, secp192k1, secp160k1
 
 # from thrift.transport import TSocket
@@ -26,6 +26,16 @@ class TestHandler:
     params = initHandler(security_dict[initList.L])
     ret = setup.PublicParame(*params)
     return ret
+
+  def execOne(self, paraOne):
+    handret = oneHandler(paraOne)
+    # ret = setup.ReturnOne()
+    return setup.ReturnOne(*handret)
+
+  def execTwo(self, paratwo):
+    handret = twoHandler(paratwo)
+    return setup.ReturnTwo(*handret)
+    
 
 
 # 创建服务端

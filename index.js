@@ -37,33 +37,62 @@ app.set('views', path.join(__dirname, 'static/views'))
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res)=>{
-  res.render('index.ejs', {})
-});
-
-app.get('/issuing', (req, res)=>{
-  res.render('issuing.ejs', req.session.pp);
-});
-
-app.get('/verifying', (req, res)=>{
-  padding = {
-    'y': req.session.pp.y,
-    'zeta1': req.session.one.zeta1,
-    'roi': req.session.one.roi,
-    'omega': req.session.one.omega,
-    'sigma1': req.session.one.sigma1,
-    'sigma2': req.session.one.sigma2,
-    'delta': req.session.one.delta
-  };
-  res.render('verifying.ejs', padding);
+  res.render('index.ejs', {
+    'a': '0',
+    'b': '7',
+    'n': '115792089237316195423570985008687907852837564279074904382605163141518161494337'
+  })
 });
 
 app.post('/setup', (req, res)=>{
   req.session.L = req.body.L;
-  let chunk = new ttypes.InitParame(req.body);
+  let chunk = new ttypes.InitParame({
+    'L': req.body.L
+  });
   client.init(chunk,(err, ret)=>{
     req.session.pp = ret;
     res.json(JSON.stringify(ret));
   });
+});
+
+app.post('/sendyt', (req, res)=>{
+  req.session.address = req.body.contractAddress;
+  req.session.yt = req.body.yt;
+  res.send('I am fine');
+});
+
+app.get('/issuing', (req, res)=>{
+  let chunk = new ttypes.IssueParame({
+    'L': req.session.L,
+    'sg': req.session.pp.sg,
+    'sh': req.session.pp.sh,
+    'yt': req.session.yt,
+    'x': req.session.pp.x,
+    'sy': req.session.pp.sy,
+    'gamma': req.session.pp.gamma,
+    'sxi': req.session.pp.sxi,
+    'sz': req.session.pp.sz
+  });
+  client.issue(chunk,(err, ret)=>{
+    req.session.issres = ret;
+    res.render('issuing.ejs', {
+      'gamma': req.session.pp.gamma,
+      'xi': req.session.pp.xi,
+      'z': req.session.pp.z,
+      'zu': ret.zu,
+      'v': ret.v,
+      'u': ret.u,
+      's1': ret.s1,
+      's2': ret.s2,
+      'd': ret.d,
+      't1': ret.t1,
+      't2': ret.t2,
+      't3': ret.t3,
+      't4': ret.t4,
+      't5': ret.t5,
+      'y': req.session.pp.y
+    });
+  });  
 });
 
 app.post('/issuerkey', (req, res)=>{
@@ -85,12 +114,45 @@ app.post('/userkey', (req, res)=>{
 
 app.post('/issuerExecuteTwo', (req, res)=>{
   res.json(JSON.stringify({
-    'z1': req.session.pp.z1,
-    'z2': req.session.pp.z2,
-    'a': req.session.pp.a,
-    'b1': req.session.pp.b1,
-    'b2': req.session.pp.b2
+    'z1': req.session.issres.z1,
+    'z2': req.session.issres.z2,
+    'a': req.session.issres.a,
+    'b1': req.session.issres.b1,
+    'b2': req.session.issres.b2
   }));
+});
+
+app.post('/userExecuteThree', (req,res)=>{
+  req.session.m = req.body.m;
+  let chunk = new ttypes.ProtocolOne({
+    't1': req.session.issres.t1,
+    't2': req.session.issres.t2,
+    't3': req.session.issres.t3,
+    't4': req.session.issres.t4,
+    't5': req.session.issres.t5,
+    'gamma': req.session.pp.gamma,
+    'sz1': req.session.issres.sz1,
+    'sz': req.session.pp.sz,
+    'sa': req.session.issres.sa,
+    'sb1': req.session.issres.sb1,
+    'sb2': req.session.issres.sb2,
+    'sg': req.session.pp.sg,
+    'sh': req.session.pp.sh,
+    'sy': req.session.pp.sy,
+    'M': req.body.m,
+    'L': req.session.L,
+    'd': req.session.issres.d,
+    'u': req.session.issres.u,
+    'x': req.session.pp.x,
+    's1': req.session.issres.s1,
+    's2': req.session.issres.s2,
+    'v': req.session.issres.v,
+    'sxi': req.session.pp.sxi
+  });
+  client.execOne(chunk,(err, ret)=>{
+    req.session.one = ret;
+    res.json(JSON.stringify(ret));    
+  });
 });
 
 app.post('/issuerExecuteFour', (req, res)=>{
@@ -118,6 +180,19 @@ app.post('/issuerExecuteSix', (req, res)=>{
   }));
 });
 
+app.get('/verifying', (req, res)=>{
+  padding = {
+    'y': req.session.pp.y,
+    'zeta1': req.session.one.zeta1,
+    'roi': req.session.one.roi,
+    'omega': req.session.one.omega,
+    'sigma1': req.session.one.sigma1,
+    'sigma2': req.session.one.sigma2,
+    'delta': req.session.one.delta
+  };
+  res.render('verifying.ejs', padding);
+});
+
 app.post('/verifyCred', (req, res)=>{
   let chunk = new ttypes.ProtocolTwo({
     'omega': req.session.one.omega,
@@ -136,39 +211,6 @@ app.post('/verifyCred', (req, res)=>{
   client.execTwo(chunk,(err, ret)=>{
     // console.log(ret);
     res.json(JSON.stringify(ret));
-  });
-});
-
-app.post('/userExecuteThree', (req,res)=>{
-  req.session.m = req.body.m;
-  let chunk = new ttypes.ProtocolOne({
-    't1': req.session.pp.t1,
-    't2': req.session.pp.t2,
-    't3': req.session.pp.t3,
-    't4': req.session.pp.t4,
-    't5': req.session.pp.t5,
-    'gamma': req.session.pp.gamma,
-    'sz1': req.session.pp.sz1,
-    'sz': req.session.pp.sz,
-    'sa': req.session.pp.sa,
-    'sb1': req.session.pp.sb1,
-    'sb2': req.session.pp.sb2,
-    'sg': req.session.pp.sg,
-    'sh': req.session.pp.sh,
-    'sy': req.session.pp.sy,
-    'M': req.body.m,
-    'L': req.session.L,
-    'd': req.session.pp.d,
-    'u': req.session.pp.u,
-    'x': req.session.pp.x,
-    's1': req.session.pp.s1,
-    's2': req.session.pp.s2,
-    'v': req.session.pp.v,
-    'sxi': req.session.pp.sxi
-  });
-  client.execOne(chunk,(err, ret)=>{
-    req.session.one = ret;
-    res.json(JSON.stringify(ret));    
   });
 });
 

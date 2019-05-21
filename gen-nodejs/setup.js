@@ -13,81 +13,6 @@ var Q = thrift.Q;
 var ttypes = require('./ecc_types');
 //HELPER FUNCTIONS AND STRUCTURES
 
-var setup_sayHello_args = function(args) {
-};
-setup_sayHello_args.prototype = {};
-setup_sayHello_args.prototype.read = function(input) {
-  input.readStructBegin();
-  while (true) {
-    var ret = input.readFieldBegin();
-    var ftype = ret.ftype;
-    if (ftype == Thrift.Type.STOP) {
-      break;
-    }
-    input.skip(ftype);
-    input.readFieldEnd();
-  }
-  input.readStructEnd();
-  return;
-};
-
-setup_sayHello_args.prototype.write = function(output) {
-  output.writeStructBegin('setup_sayHello_args');
-  output.writeFieldStop();
-  output.writeStructEnd();
-  return;
-};
-
-var setup_sayHello_result = function(args) {
-  this.success = null;
-  if (args) {
-    if (args.success !== undefined && args.success !== null) {
-      this.success = args.success;
-    }
-  }
-};
-setup_sayHello_result.prototype = {};
-setup_sayHello_result.prototype.read = function(input) {
-  input.readStructBegin();
-  while (true) {
-    var ret = input.readFieldBegin();
-    var ftype = ret.ftype;
-    var fid = ret.fid;
-    if (ftype == Thrift.Type.STOP) {
-      break;
-    }
-    switch (fid) {
-      case 0:
-      if (ftype == Thrift.Type.STRING) {
-        this.success = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 0:
-        input.skip(ftype);
-        break;
-      default:
-        input.skip(ftype);
-    }
-    input.readFieldEnd();
-  }
-  input.readStructEnd();
-  return;
-};
-
-setup_sayHello_result.prototype.write = function(output) {
-  output.writeStructBegin('setup_sayHello_result');
-  if (this.success !== null && this.success !== undefined) {
-    output.writeFieldBegin('success', Thrift.Type.STRING, 0);
-    output.writeString(this.success);
-    output.writeFieldEnd();
-  }
-  output.writeFieldStop();
-  output.writeStructEnd();
-  return;
-};
-
 var setup_init_args = function(args) {
   this.initParame = null;
   if (args) {
@@ -180,6 +105,108 @@ setup_init_result.prototype.read = function(input) {
 
 setup_init_result.prototype.write = function(output) {
   output.writeStructBegin('setup_init_result');
+  if (this.success !== null && this.success !== undefined) {
+    output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
+    this.success.write(output);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+var setup_issue_args = function(args) {
+  this.issueParame = null;
+  if (args) {
+    if (args.issueParame !== undefined && args.issueParame !== null) {
+      this.issueParame = new ttypes.IssueParame(args.issueParame);
+    }
+  }
+};
+setup_issue_args.prototype = {};
+setup_issue_args.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true) {
+    var ret = input.readFieldBegin();
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid) {
+      case 1:
+      if (ftype == Thrift.Type.STRUCT) {
+        this.issueParame = new ttypes.IssueParame();
+        this.issueParame.read(input);
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 0:
+        input.skip(ftype);
+        break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+setup_issue_args.prototype.write = function(output) {
+  output.writeStructBegin('setup_issue_args');
+  if (this.issueParame !== null && this.issueParame !== undefined) {
+    output.writeFieldBegin('issueParame', Thrift.Type.STRUCT, 1);
+    this.issueParame.write(output);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+var setup_issue_result = function(args) {
+  this.success = null;
+  if (args) {
+    if (args.success !== undefined && args.success !== null) {
+      this.success = new ttypes.RetIssue(args.success);
+    }
+  }
+};
+setup_issue_result.prototype = {};
+setup_issue_result.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true) {
+    var ret = input.readFieldBegin();
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid) {
+      case 0:
+      if (ftype == Thrift.Type.STRUCT) {
+        this.success = new ttypes.RetIssue();
+        this.success.read(input);
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 0:
+        input.skip(ftype);
+        break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+setup_issue_result.prototype.write = function(output) {
+  output.writeStructBegin('setup_issue_result');
   if (this.success !== null && this.success !== undefined) {
     output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
     this.success.write(output);
@@ -404,62 +431,6 @@ setupClient.prototype = {};
 setupClient.prototype.seqid = function() { return this._seqid; };
 setupClient.prototype.new_seqid = function() { return this._seqid += 1; };
 
-setupClient.prototype.sayHello = function(callback) {
-  this._seqid = this.new_seqid();
-  if (callback === undefined) {
-    var _defer = Q.defer();
-    this._reqs[this.seqid()] = function(error, result) {
-      if (error) {
-        _defer.reject(error);
-      } else {
-        _defer.resolve(result);
-      }
-    };
-    this.send_sayHello();
-    return _defer.promise;
-  } else {
-    this._reqs[this.seqid()] = callback;
-    this.send_sayHello();
-  }
-};
-
-setupClient.prototype.send_sayHello = function() {
-  var output = new this.pClass(this.output);
-  var args = new setup_sayHello_args();
-  try {
-    output.writeMessageBegin('sayHello', Thrift.MessageType.CALL, this.seqid());
-    args.write(output);
-    output.writeMessageEnd();
-    return this.output.flush();
-  }
-  catch (e) {
-    delete this._reqs[this.seqid()];
-    if (typeof output.reset === 'function') {
-      output.reset();
-    }
-    throw e;
-  }
-};
-
-setupClient.prototype.recv_sayHello = function(input,mtype,rseqid) {
-  var callback = this._reqs[rseqid] || function() {};
-  delete this._reqs[rseqid];
-  if (mtype == Thrift.MessageType.EXCEPTION) {
-    var x = new Thrift.TApplicationException();
-    x.read(input);
-    input.readMessageEnd();
-    return callback(x);
-  }
-  var result = new setup_sayHello_result();
-  result.read(input);
-  input.readMessageEnd();
-
-  if (null !== result.success) {
-    return callback(null, result.success);
-  }
-  return callback('sayHello failed: unknown result');
-};
-
 setupClient.prototype.init = function(initParame, callback) {
   this._seqid = this.new_seqid();
   if (callback === undefined) {
@@ -517,6 +488,65 @@ setupClient.prototype.recv_init = function(input,mtype,rseqid) {
     return callback(null, result.success);
   }
   return callback('init failed: unknown result');
+};
+
+setupClient.prototype.issue = function(issueParame, callback) {
+  this._seqid = this.new_seqid();
+  if (callback === undefined) {
+    var _defer = Q.defer();
+    this._reqs[this.seqid()] = function(error, result) {
+      if (error) {
+        _defer.reject(error);
+      } else {
+        _defer.resolve(result);
+      }
+    };
+    this.send_issue(issueParame);
+    return _defer.promise;
+  } else {
+    this._reqs[this.seqid()] = callback;
+    this.send_issue(issueParame);
+  }
+};
+
+setupClient.prototype.send_issue = function(issueParame) {
+  var output = new this.pClass(this.output);
+  var params = {
+    issueParame: issueParame
+  };
+  var args = new setup_issue_args(params);
+  try {
+    output.writeMessageBegin('issue', Thrift.MessageType.CALL, this.seqid());
+    args.write(output);
+    output.writeMessageEnd();
+    return this.output.flush();
+  }
+  catch (e) {
+    delete this._reqs[this.seqid()];
+    if (typeof output.reset === 'function') {
+      output.reset();
+    }
+    throw e;
+  }
+};
+
+setupClient.prototype.recv_issue = function(input,mtype,rseqid) {
+  var callback = this._reqs[rseqid] || function() {};
+  delete this._reqs[rseqid];
+  if (mtype == Thrift.MessageType.EXCEPTION) {
+    var x = new Thrift.TApplicationException();
+    x.read(input);
+    input.readMessageEnd();
+    return callback(x);
+  }
+  var result = new setup_issue_result();
+  result.read(input);
+  input.readMessageEnd();
+
+  if (null !== result.success) {
+    return callback(null, result.success);
+  }
+  return callback('issue failed: unknown result');
 };
 
 setupClient.prototype.execOne = function(protocolone, callback) {
@@ -653,42 +683,6 @@ setupProcessor.prototype.process = function(input, output) {
     output.flush();
   }
 };
-setupProcessor.prototype.process_sayHello = function(seqid, input, output) {
-  var args = new setup_sayHello_args();
-  args.read(input);
-  input.readMessageEnd();
-  if (this._handler.sayHello.length === 0) {
-    Q.fcall(this._handler.sayHello.bind(this._handler)
-    ).then(function(result) {
-      var result_obj = new setup_sayHello_result({success: result});
-      output.writeMessageBegin("sayHello", Thrift.MessageType.REPLY, seqid);
-      result_obj.write(output);
-      output.writeMessageEnd();
-      output.flush();
-    }).catch(function (err) {
-      var result;
-      result = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
-      output.writeMessageBegin("sayHello", Thrift.MessageType.EXCEPTION, seqid);
-      result.write(output);
-      output.writeMessageEnd();
-      output.flush();
-    });
-  } else {
-    this._handler.sayHello(function (err, result) {
-      var result_obj;
-      if ((err === null || typeof err === 'undefined')) {
-        result_obj = new setup_sayHello_result((err !== null || typeof err === 'undefined') ? err : {success: result});
-        output.writeMessageBegin("sayHello", Thrift.MessageType.REPLY, seqid);
-      } else {
-        result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
-        output.writeMessageBegin("sayHello", Thrift.MessageType.EXCEPTION, seqid);
-      }
-      result_obj.write(output);
-      output.writeMessageEnd();
-      output.flush();
-    });
-  }
-};
 setupProcessor.prototype.process_init = function(seqid, input, output) {
   var args = new setup_init_args();
   args.read(input);
@@ -719,6 +713,43 @@ setupProcessor.prototype.process_init = function(seqid, input, output) {
       } else {
         result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
         output.writeMessageBegin("init", Thrift.MessageType.EXCEPTION, seqid);
+      }
+      result_obj.write(output);
+      output.writeMessageEnd();
+      output.flush();
+    });
+  }
+};
+setupProcessor.prototype.process_issue = function(seqid, input, output) {
+  var args = new setup_issue_args();
+  args.read(input);
+  input.readMessageEnd();
+  if (this._handler.issue.length === 1) {
+    Q.fcall(this._handler.issue.bind(this._handler),
+      args.issueParame
+    ).then(function(result) {
+      var result_obj = new setup_issue_result({success: result});
+      output.writeMessageBegin("issue", Thrift.MessageType.REPLY, seqid);
+      result_obj.write(output);
+      output.writeMessageEnd();
+      output.flush();
+    }).catch(function (err) {
+      var result;
+      result = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
+      output.writeMessageBegin("issue", Thrift.MessageType.EXCEPTION, seqid);
+      result.write(output);
+      output.writeMessageEnd();
+      output.flush();
+    });
+  } else {
+    this._handler.issue(args.issueParame, function (err, result) {
+      var result_obj;
+      if ((err === null || typeof err === 'undefined')) {
+        result_obj = new setup_issue_result((err !== null || typeof err === 'undefined') ? err : {success: result});
+        output.writeMessageBegin("issue", Thrift.MessageType.REPLY, seqid);
+      } else {
+        result_obj = new Thrift.TApplicationException(Thrift.TApplicationExceptionType.UNKNOWN, err.message);
+        output.writeMessageBegin("issue", Thrift.MessageType.EXCEPTION, seqid);
       }
       result_obj.write(output);
       output.writeMessageEnd();

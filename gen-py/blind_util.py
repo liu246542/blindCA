@@ -1,6 +1,16 @@
 from charm.toolbox.ecgroup import ECGroup,G,ZR
 from charm.toolbox.eccurve import secp256k1, secp192k1, secp160k1
 
+
+def point2Obj(x, group):
+  import binascii
+  temp_str = hex(x)[2:]
+  dict_ecc = {708: 42,
+             711: 48,
+             714: 64}
+  temp_str = (dict_ecc[group.groupType()] - len(temp_str)) * '0' + temp_str
+  return group.encode(binascii.a2b_hex(temp_str), include_ctr=True)
+
 security_dict = {
   '256' : secp256k1,
   '192' : secp192k1,
@@ -14,10 +24,30 @@ def initHandler(kappa):
   y, xi = g ** x, g ** gamma
   z = group.hash((g, h, y), G)
 
-  xt = group.random(ZR)
-  yt = g ** xt
+  ret = [group.order(), g, h,\
+         bytes.decode(group.serialize(g)), bytes.decode(group.serialize(h)),\
+         x, y, gamma, xi,\
+         bytes.decode(group.serialize(y)), bytes.decode(group.serialize(xi)),\
+         z, bytes.decode(group.serialize(z))]
+  return (str(k) for k in ret)
 
-  #####-------------------------------#####
+def issuerHandler(issueparam):
+  group = ECGroup(security_dict[issueparam.L])
+  g = group.deserialize(str.encode(issueparam.sg))
+  h = group.deserialize(str.encode(issueparam.sh))
+  print(issueparam.yt)
+  yt = point2Obj(int(issueparam.yt), group)
+  x = group.init(ZR, int(issueparam.x))
+  gamma = group.init(ZR, int(issueparam.gamma))
+  y = group.deserialize(str.encode(issueparam.sy))
+  xi = group.deserialize(str.encode(issueparam.sxi))
+  z = group.deserialize(str.encode(issueparam.sz))
+
+  # ------------------------------------------------
+  #x, gamma = group.random(ZR), group.random(ZR)
+  #y, xi = g ** x, g ** gamma
+  # ------------------------------------------------
+  
   zu = z ** (gamma ** -1)
   v, u, d, s1, s2 = (group.random(ZR) for i in range(5))
   t1, t2, t3, t4, t5 = (group.random(ZR) for i in range(5))
@@ -26,16 +56,15 @@ def initHandler(kappa):
   a = g ** u
   b1 = (g ** s1) * (z1 ** d)
   b2 = (h ** s2) * (z2 ** d)
-  #####-------------------------------#####
 
-  ret = [group.order(), g, h, x, y, gamma, xi, z,\
-         zu, v, u, d, s1, s2, \
+  ret = [zu, v, u, d, s1, s2, \
          t1, t2, t3, t4, t5, \
          z1, z2, a, b1, b2,\
-         bytes.decode(group.serialize(g)), bytes.decode(group.serialize(h)), bytes.decode(group.serialize(y)), bytes.decode(group.serialize(xi)), bytes.decode(group.serialize(z)),\
-         bytes.decode(group.serialize(zu)), bytes.decode(group.serialize(z1)), bytes.decode(group.serialize(z2)), bytes.decode(group.serialize(a)), bytes.decode(group.serialize(b1)), bytes.decode(group.serialize(b2))]
+         bytes.decode(group.serialize(zu)), bytes.decode(group.serialize(z1)), bytes.decode(group.serialize(z2)),\
+         bytes.decode(group.serialize(a)), bytes.decode(group.serialize(b1)), bytes.decode(group.serialize(b2))]
 
   return (str(k)  for k in ret)
+
 
 def oneHandler(oneParameter):
   

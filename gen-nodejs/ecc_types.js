@@ -13,13 +13,9 @@ var Q = thrift.Q;
 var ttypes = module.exports = {};
 var InitParame = module.exports.InitParame = function(args) {
   this.L = null;
-  this.N = null;
   if (args) {
     if (args.L !== undefined && args.L !== null) {
       this.L = args.L;
-    }
-    if (args.N !== undefined && args.N !== null) {
-      this.N = args.N;
     }
   }
 };
@@ -41,13 +37,9 @@ InitParame.prototype.read = function(input) {
         input.skip(ftype);
       }
       break;
-      case 2:
-      if (ftype == Thrift.Type.I16) {
-        this.N = input.readI16();
-      } else {
+      case 0:
         input.skip(ftype);
-      }
-      break;
+        break;
       default:
         input.skip(ftype);
     }
@@ -62,11 +54,6 @@ InitParame.prototype.write = function(output) {
   if (this.L !== null && this.L !== undefined) {
     output.writeFieldBegin('L', Thrift.Type.STRING, 1);
     output.writeString(this.L);
-    output.writeFieldEnd();
-  }
-  if (this.N !== null && this.N !== undefined) {
-    output.writeFieldBegin('N', Thrift.Type.I16, 2);
-    output.writeI16(this.N);
     output.writeFieldEnd();
   }
   output.writeFieldStop();
@@ -1082,11 +1069,417 @@ var PublicParame = module.exports.PublicParame = function(args) {
   this.p = null;
   this.g = null;
   this.h = null;
+  this.sg = null;
+  this.sh = null;
   this.x = null;
   this.y = null;
   this.gamma = null;
   this.xi = null;
+  this.sy = null;
+  this.sxi = null;
   this.z = null;
+  this.sz = null;
+  if (args) {
+    if (args.p !== undefined && args.p !== null) {
+      this.p = args.p;
+    }
+    if (args.g !== undefined && args.g !== null) {
+      this.g = args.g;
+    }
+    if (args.h !== undefined && args.h !== null) {
+      this.h = args.h;
+    }
+    if (args.sg !== undefined && args.sg !== null) {
+      this.sg = args.sg;
+    }
+    if (args.sh !== undefined && args.sh !== null) {
+      this.sh = args.sh;
+    }
+    if (args.x !== undefined && args.x !== null) {
+      this.x = args.x;
+    }
+    if (args.y !== undefined && args.y !== null) {
+      this.y = args.y;
+    }
+    if (args.gamma !== undefined && args.gamma !== null) {
+      this.gamma = args.gamma;
+    }
+    if (args.xi !== undefined && args.xi !== null) {
+      this.xi = args.xi;
+    }
+    if (args.sy !== undefined && args.sy !== null) {
+      this.sy = args.sy;
+    }
+    if (args.sxi !== undefined && args.sxi !== null) {
+      this.sxi = args.sxi;
+    }
+    if (args.z !== undefined && args.z !== null) {
+      this.z = args.z;
+    }
+    if (args.sz !== undefined && args.sz !== null) {
+      this.sz = args.sz;
+    }
+  }
+};
+PublicParame.prototype = {};
+PublicParame.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true) {
+    var ret = input.readFieldBegin();
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid) {
+      case 1:
+      if (ftype == Thrift.Type.STRING) {
+        this.p = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 2:
+      if (ftype == Thrift.Type.STRING) {
+        this.g = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 3:
+      if (ftype == Thrift.Type.STRING) {
+        this.h = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 4:
+      if (ftype == Thrift.Type.STRING) {
+        this.sg = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 5:
+      if (ftype == Thrift.Type.STRING) {
+        this.sh = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 6:
+      if (ftype == Thrift.Type.STRING) {
+        this.x = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 7:
+      if (ftype == Thrift.Type.STRING) {
+        this.y = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 8:
+      if (ftype == Thrift.Type.STRING) {
+        this.gamma = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 9:
+      if (ftype == Thrift.Type.STRING) {
+        this.xi = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 10:
+      if (ftype == Thrift.Type.STRING) {
+        this.sy = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 11:
+      if (ftype == Thrift.Type.STRING) {
+        this.sxi = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 12:
+      if (ftype == Thrift.Type.STRING) {
+        this.z = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 13:
+      if (ftype == Thrift.Type.STRING) {
+        this.sz = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+PublicParame.prototype.write = function(output) {
+  output.writeStructBegin('PublicParame');
+  if (this.p !== null && this.p !== undefined) {
+    output.writeFieldBegin('p', Thrift.Type.STRING, 1);
+    output.writeString(this.p);
+    output.writeFieldEnd();
+  }
+  if (this.g !== null && this.g !== undefined) {
+    output.writeFieldBegin('g', Thrift.Type.STRING, 2);
+    output.writeString(this.g);
+    output.writeFieldEnd();
+  }
+  if (this.h !== null && this.h !== undefined) {
+    output.writeFieldBegin('h', Thrift.Type.STRING, 3);
+    output.writeString(this.h);
+    output.writeFieldEnd();
+  }
+  if (this.sg !== null && this.sg !== undefined) {
+    output.writeFieldBegin('sg', Thrift.Type.STRING, 4);
+    output.writeString(this.sg);
+    output.writeFieldEnd();
+  }
+  if (this.sh !== null && this.sh !== undefined) {
+    output.writeFieldBegin('sh', Thrift.Type.STRING, 5);
+    output.writeString(this.sh);
+    output.writeFieldEnd();
+  }
+  if (this.x !== null && this.x !== undefined) {
+    output.writeFieldBegin('x', Thrift.Type.STRING, 6);
+    output.writeString(this.x);
+    output.writeFieldEnd();
+  }
+  if (this.y !== null && this.y !== undefined) {
+    output.writeFieldBegin('y', Thrift.Type.STRING, 7);
+    output.writeString(this.y);
+    output.writeFieldEnd();
+  }
+  if (this.gamma !== null && this.gamma !== undefined) {
+    output.writeFieldBegin('gamma', Thrift.Type.STRING, 8);
+    output.writeString(this.gamma);
+    output.writeFieldEnd();
+  }
+  if (this.xi !== null && this.xi !== undefined) {
+    output.writeFieldBegin('xi', Thrift.Type.STRING, 9);
+    output.writeString(this.xi);
+    output.writeFieldEnd();
+  }
+  if (this.sy !== null && this.sy !== undefined) {
+    output.writeFieldBegin('sy', Thrift.Type.STRING, 10);
+    output.writeString(this.sy);
+    output.writeFieldEnd();
+  }
+  if (this.sxi !== null && this.sxi !== undefined) {
+    output.writeFieldBegin('sxi', Thrift.Type.STRING, 11);
+    output.writeString(this.sxi);
+    output.writeFieldEnd();
+  }
+  if (this.z !== null && this.z !== undefined) {
+    output.writeFieldBegin('z', Thrift.Type.STRING, 12);
+    output.writeString(this.z);
+    output.writeFieldEnd();
+  }
+  if (this.sz !== null && this.sz !== undefined) {
+    output.writeFieldBegin('sz', Thrift.Type.STRING, 13);
+    output.writeString(this.sz);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+var IssueParame = module.exports.IssueParame = function(args) {
+  this.L = null;
+  this.sg = null;
+  this.sh = null;
+  this.yt = null;
+  this.x = null;
+  this.sy = null;
+  this.gamma = null;
+  this.sxi = null;
+  this.sz = null;
+  if (args) {
+    if (args.L !== undefined && args.L !== null) {
+      this.L = args.L;
+    }
+    if (args.sg !== undefined && args.sg !== null) {
+      this.sg = args.sg;
+    }
+    if (args.sh !== undefined && args.sh !== null) {
+      this.sh = args.sh;
+    }
+    if (args.yt !== undefined && args.yt !== null) {
+      this.yt = args.yt;
+    }
+    if (args.x !== undefined && args.x !== null) {
+      this.x = args.x;
+    }
+    if (args.sy !== undefined && args.sy !== null) {
+      this.sy = args.sy;
+    }
+    if (args.gamma !== undefined && args.gamma !== null) {
+      this.gamma = args.gamma;
+    }
+    if (args.sxi !== undefined && args.sxi !== null) {
+      this.sxi = args.sxi;
+    }
+    if (args.sz !== undefined && args.sz !== null) {
+      this.sz = args.sz;
+    }
+  }
+};
+IssueParame.prototype = {};
+IssueParame.prototype.read = function(input) {
+  input.readStructBegin();
+  while (true) {
+    var ret = input.readFieldBegin();
+    var ftype = ret.ftype;
+    var fid = ret.fid;
+    if (ftype == Thrift.Type.STOP) {
+      break;
+    }
+    switch (fid) {
+      case 1:
+      if (ftype == Thrift.Type.STRING) {
+        this.L = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 2:
+      if (ftype == Thrift.Type.STRING) {
+        this.sg = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 3:
+      if (ftype == Thrift.Type.STRING) {
+        this.sh = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 4:
+      if (ftype == Thrift.Type.STRING) {
+        this.yt = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 5:
+      if (ftype == Thrift.Type.STRING) {
+        this.x = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 6:
+      if (ftype == Thrift.Type.STRING) {
+        this.sy = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 7:
+      if (ftype == Thrift.Type.STRING) {
+        this.gamma = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 8:
+      if (ftype == Thrift.Type.STRING) {
+        this.sxi = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      case 9:
+      if (ftype == Thrift.Type.STRING) {
+        this.sz = input.readString();
+      } else {
+        input.skip(ftype);
+      }
+      break;
+      default:
+        input.skip(ftype);
+    }
+    input.readFieldEnd();
+  }
+  input.readStructEnd();
+  return;
+};
+
+IssueParame.prototype.write = function(output) {
+  output.writeStructBegin('IssueParame');
+  if (this.L !== null && this.L !== undefined) {
+    output.writeFieldBegin('L', Thrift.Type.STRING, 1);
+    output.writeString(this.L);
+    output.writeFieldEnd();
+  }
+  if (this.sg !== null && this.sg !== undefined) {
+    output.writeFieldBegin('sg', Thrift.Type.STRING, 2);
+    output.writeString(this.sg);
+    output.writeFieldEnd();
+  }
+  if (this.sh !== null && this.sh !== undefined) {
+    output.writeFieldBegin('sh', Thrift.Type.STRING, 3);
+    output.writeString(this.sh);
+    output.writeFieldEnd();
+  }
+  if (this.yt !== null && this.yt !== undefined) {
+    output.writeFieldBegin('yt', Thrift.Type.STRING, 4);
+    output.writeString(this.yt);
+    output.writeFieldEnd();
+  }
+  if (this.x !== null && this.x !== undefined) {
+    output.writeFieldBegin('x', Thrift.Type.STRING, 5);
+    output.writeString(this.x);
+    output.writeFieldEnd();
+  }
+  if (this.sy !== null && this.sy !== undefined) {
+    output.writeFieldBegin('sy', Thrift.Type.STRING, 6);
+    output.writeString(this.sy);
+    output.writeFieldEnd();
+  }
+  if (this.gamma !== null && this.gamma !== undefined) {
+    output.writeFieldBegin('gamma', Thrift.Type.STRING, 7);
+    output.writeString(this.gamma);
+    output.writeFieldEnd();
+  }
+  if (this.sxi !== null && this.sxi !== undefined) {
+    output.writeFieldBegin('sxi', Thrift.Type.STRING, 8);
+    output.writeString(this.sxi);
+    output.writeFieldEnd();
+  }
+  if (this.sz !== null && this.sz !== undefined) {
+    output.writeFieldBegin('sz', Thrift.Type.STRING, 9);
+    output.writeString(this.sz);
+    output.writeFieldEnd();
+  }
+  output.writeFieldStop();
+  output.writeStructEnd();
+  return;
+};
+
+var RetIssue = module.exports.RetIssue = function(args) {
   this.zu = null;
   this.v = null;
   this.u = null;
@@ -1103,11 +1496,6 @@ var PublicParame = module.exports.PublicParame = function(args) {
   this.a = null;
   this.b1 = null;
   this.b2 = null;
-  this.sg = null;
-  this.sh = null;
-  this.sy = null;
-  this.sxi = null;
-  this.sz = null;
   this.szu = null;
   this.sz1 = null;
   this.sz2 = null;
@@ -1115,30 +1503,6 @@ var PublicParame = module.exports.PublicParame = function(args) {
   this.sb1 = null;
   this.sb2 = null;
   if (args) {
-    if (args.p !== undefined && args.p !== null) {
-      this.p = args.p;
-    }
-    if (args.g !== undefined && args.g !== null) {
-      this.g = args.g;
-    }
-    if (args.h !== undefined && args.h !== null) {
-      this.h = args.h;
-    }
-    if (args.x !== undefined && args.x !== null) {
-      this.x = args.x;
-    }
-    if (args.y !== undefined && args.y !== null) {
-      this.y = args.y;
-    }
-    if (args.gamma !== undefined && args.gamma !== null) {
-      this.gamma = args.gamma;
-    }
-    if (args.xi !== undefined && args.xi !== null) {
-      this.xi = args.xi;
-    }
-    if (args.z !== undefined && args.z !== null) {
-      this.z = args.z;
-    }
     if (args.zu !== undefined && args.zu !== null) {
       this.zu = args.zu;
     }
@@ -1187,21 +1551,6 @@ var PublicParame = module.exports.PublicParame = function(args) {
     if (args.b2 !== undefined && args.b2 !== null) {
       this.b2 = args.b2;
     }
-    if (args.sg !== undefined && args.sg !== null) {
-      this.sg = args.sg;
-    }
-    if (args.sh !== undefined && args.sh !== null) {
-      this.sh = args.sh;
-    }
-    if (args.sy !== undefined && args.sy !== null) {
-      this.sy = args.sy;
-    }
-    if (args.sxi !== undefined && args.sxi !== null) {
-      this.sxi = args.sxi;
-    }
-    if (args.sz !== undefined && args.sz !== null) {
-      this.sz = args.sz;
-    }
     if (args.szu !== undefined && args.szu !== null) {
       this.szu = args.szu;
     }
@@ -1222,8 +1571,8 @@ var PublicParame = module.exports.PublicParame = function(args) {
     }
   }
 };
-PublicParame.prototype = {};
-PublicParame.prototype.read = function(input) {
+RetIssue.prototype = {};
+RetIssue.prototype.read = function(input) {
   input.readStructBegin();
   while (true) {
     var ret = input.readFieldBegin();
@@ -1235,243 +1584,152 @@ PublicParame.prototype.read = function(input) {
     switch (fid) {
       case 1:
       if (ftype == Thrift.Type.STRING) {
-        this.p = input.readString();
+        this.zu = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 2:
       if (ftype == Thrift.Type.STRING) {
-        this.g = input.readString();
+        this.v = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 3:
       if (ftype == Thrift.Type.STRING) {
-        this.h = input.readString();
+        this.u = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 4:
       if (ftype == Thrift.Type.STRING) {
-        this.x = input.readString();
+        this.d = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 5:
       if (ftype == Thrift.Type.STRING) {
-        this.y = input.readString();
+        this.s1 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 6:
       if (ftype == Thrift.Type.STRING) {
-        this.gamma = input.readString();
+        this.s2 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 7:
       if (ftype == Thrift.Type.STRING) {
-        this.xi = input.readString();
+        this.t1 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 8:
       if (ftype == Thrift.Type.STRING) {
-        this.z = input.readString();
+        this.t2 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 9:
       if (ftype == Thrift.Type.STRING) {
-        this.zu = input.readString();
+        this.t3 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 10:
       if (ftype == Thrift.Type.STRING) {
-        this.v = input.readString();
+        this.t4 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 11:
       if (ftype == Thrift.Type.STRING) {
-        this.u = input.readString();
+        this.t5 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 12:
       if (ftype == Thrift.Type.STRING) {
-        this.d = input.readString();
+        this.z1 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 13:
       if (ftype == Thrift.Type.STRING) {
-        this.s1 = input.readString();
+        this.z2 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 14:
       if (ftype == Thrift.Type.STRING) {
-        this.s2 = input.readString();
+        this.a = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 15:
       if (ftype == Thrift.Type.STRING) {
-        this.t1 = input.readString();
+        this.b1 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 16:
       if (ftype == Thrift.Type.STRING) {
-        this.t2 = input.readString();
+        this.b2 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 17:
       if (ftype == Thrift.Type.STRING) {
-        this.t3 = input.readString();
+        this.szu = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 18:
       if (ftype == Thrift.Type.STRING) {
-        this.t4 = input.readString();
+        this.sz1 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 19:
       if (ftype == Thrift.Type.STRING) {
-        this.t5 = input.readString();
+        this.sz2 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 20:
       if (ftype == Thrift.Type.STRING) {
-        this.z1 = input.readString();
+        this.sa = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
       case 21:
       if (ftype == Thrift.Type.STRING) {
-        this.z2 = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 22:
-      if (ftype == Thrift.Type.STRING) {
-        this.a = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 23:
-      if (ftype == Thrift.Type.STRING) {
-        this.b1 = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 24:
-      if (ftype == Thrift.Type.STRING) {
-        this.b2 = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 25:
-      if (ftype == Thrift.Type.STRING) {
-        this.sg = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 26:
-      if (ftype == Thrift.Type.STRING) {
-        this.sh = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 27:
-      if (ftype == Thrift.Type.STRING) {
-        this.sy = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 28:
-      if (ftype == Thrift.Type.STRING) {
-        this.sxi = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 29:
-      if (ftype == Thrift.Type.STRING) {
-        this.sz = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 30:
-      if (ftype == Thrift.Type.STRING) {
-        this.szu = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 31:
-      if (ftype == Thrift.Type.STRING) {
-        this.sz1 = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 32:
-      if (ftype == Thrift.Type.STRING) {
-        this.sz2 = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 33:
-      if (ftype == Thrift.Type.STRING) {
-        this.sa = input.readString();
-      } else {
-        input.skip(ftype);
-      }
-      break;
-      case 34:
-      if (ftype == Thrift.Type.STRING) {
         this.sb1 = input.readString();
       } else {
         input.skip(ftype);
       }
       break;
-      case 35:
+      case 22:
       if (ftype == Thrift.Type.STRING) {
         this.sb2 = input.readString();
       } else {
@@ -1487,180 +1745,115 @@ PublicParame.prototype.read = function(input) {
   return;
 };
 
-PublicParame.prototype.write = function(output) {
-  output.writeStructBegin('PublicParame');
-  if (this.p !== null && this.p !== undefined) {
-    output.writeFieldBegin('p', Thrift.Type.STRING, 1);
-    output.writeString(this.p);
-    output.writeFieldEnd();
-  }
-  if (this.g !== null && this.g !== undefined) {
-    output.writeFieldBegin('g', Thrift.Type.STRING, 2);
-    output.writeString(this.g);
-    output.writeFieldEnd();
-  }
-  if (this.h !== null && this.h !== undefined) {
-    output.writeFieldBegin('h', Thrift.Type.STRING, 3);
-    output.writeString(this.h);
-    output.writeFieldEnd();
-  }
-  if (this.x !== null && this.x !== undefined) {
-    output.writeFieldBegin('x', Thrift.Type.STRING, 4);
-    output.writeString(this.x);
-    output.writeFieldEnd();
-  }
-  if (this.y !== null && this.y !== undefined) {
-    output.writeFieldBegin('y', Thrift.Type.STRING, 5);
-    output.writeString(this.y);
-    output.writeFieldEnd();
-  }
-  if (this.gamma !== null && this.gamma !== undefined) {
-    output.writeFieldBegin('gamma', Thrift.Type.STRING, 6);
-    output.writeString(this.gamma);
-    output.writeFieldEnd();
-  }
-  if (this.xi !== null && this.xi !== undefined) {
-    output.writeFieldBegin('xi', Thrift.Type.STRING, 7);
-    output.writeString(this.xi);
-    output.writeFieldEnd();
-  }
-  if (this.z !== null && this.z !== undefined) {
-    output.writeFieldBegin('z', Thrift.Type.STRING, 8);
-    output.writeString(this.z);
-    output.writeFieldEnd();
-  }
+RetIssue.prototype.write = function(output) {
+  output.writeStructBegin('RetIssue');
   if (this.zu !== null && this.zu !== undefined) {
-    output.writeFieldBegin('zu', Thrift.Type.STRING, 9);
+    output.writeFieldBegin('zu', Thrift.Type.STRING, 1);
     output.writeString(this.zu);
     output.writeFieldEnd();
   }
   if (this.v !== null && this.v !== undefined) {
-    output.writeFieldBegin('v', Thrift.Type.STRING, 10);
+    output.writeFieldBegin('v', Thrift.Type.STRING, 2);
     output.writeString(this.v);
     output.writeFieldEnd();
   }
   if (this.u !== null && this.u !== undefined) {
-    output.writeFieldBegin('u', Thrift.Type.STRING, 11);
+    output.writeFieldBegin('u', Thrift.Type.STRING, 3);
     output.writeString(this.u);
     output.writeFieldEnd();
   }
   if (this.d !== null && this.d !== undefined) {
-    output.writeFieldBegin('d', Thrift.Type.STRING, 12);
+    output.writeFieldBegin('d', Thrift.Type.STRING, 4);
     output.writeString(this.d);
     output.writeFieldEnd();
   }
   if (this.s1 !== null && this.s1 !== undefined) {
-    output.writeFieldBegin('s1', Thrift.Type.STRING, 13);
+    output.writeFieldBegin('s1', Thrift.Type.STRING, 5);
     output.writeString(this.s1);
     output.writeFieldEnd();
   }
   if (this.s2 !== null && this.s2 !== undefined) {
-    output.writeFieldBegin('s2', Thrift.Type.STRING, 14);
+    output.writeFieldBegin('s2', Thrift.Type.STRING, 6);
     output.writeString(this.s2);
     output.writeFieldEnd();
   }
   if (this.t1 !== null && this.t1 !== undefined) {
-    output.writeFieldBegin('t1', Thrift.Type.STRING, 15);
+    output.writeFieldBegin('t1', Thrift.Type.STRING, 7);
     output.writeString(this.t1);
     output.writeFieldEnd();
   }
   if (this.t2 !== null && this.t2 !== undefined) {
-    output.writeFieldBegin('t2', Thrift.Type.STRING, 16);
+    output.writeFieldBegin('t2', Thrift.Type.STRING, 8);
     output.writeString(this.t2);
     output.writeFieldEnd();
   }
   if (this.t3 !== null && this.t3 !== undefined) {
-    output.writeFieldBegin('t3', Thrift.Type.STRING, 17);
+    output.writeFieldBegin('t3', Thrift.Type.STRING, 9);
     output.writeString(this.t3);
     output.writeFieldEnd();
   }
   if (this.t4 !== null && this.t4 !== undefined) {
-    output.writeFieldBegin('t4', Thrift.Type.STRING, 18);
+    output.writeFieldBegin('t4', Thrift.Type.STRING, 10);
     output.writeString(this.t4);
     output.writeFieldEnd();
   }
   if (this.t5 !== null && this.t5 !== undefined) {
-    output.writeFieldBegin('t5', Thrift.Type.STRING, 19);
+    output.writeFieldBegin('t5', Thrift.Type.STRING, 11);
     output.writeString(this.t5);
     output.writeFieldEnd();
   }
   if (this.z1 !== null && this.z1 !== undefined) {
-    output.writeFieldBegin('z1', Thrift.Type.STRING, 20);
+    output.writeFieldBegin('z1', Thrift.Type.STRING, 12);
     output.writeString(this.z1);
     output.writeFieldEnd();
   }
   if (this.z2 !== null && this.z2 !== undefined) {
-    output.writeFieldBegin('z2', Thrift.Type.STRING, 21);
+    output.writeFieldBegin('z2', Thrift.Type.STRING, 13);
     output.writeString(this.z2);
     output.writeFieldEnd();
   }
   if (this.a !== null && this.a !== undefined) {
-    output.writeFieldBegin('a', Thrift.Type.STRING, 22);
+    output.writeFieldBegin('a', Thrift.Type.STRING, 14);
     output.writeString(this.a);
     output.writeFieldEnd();
   }
   if (this.b1 !== null && this.b1 !== undefined) {
-    output.writeFieldBegin('b1', Thrift.Type.STRING, 23);
+    output.writeFieldBegin('b1', Thrift.Type.STRING, 15);
     output.writeString(this.b1);
     output.writeFieldEnd();
   }
   if (this.b2 !== null && this.b2 !== undefined) {
-    output.writeFieldBegin('b2', Thrift.Type.STRING, 24);
+    output.writeFieldBegin('b2', Thrift.Type.STRING, 16);
     output.writeString(this.b2);
     output.writeFieldEnd();
   }
-  if (this.sg !== null && this.sg !== undefined) {
-    output.writeFieldBegin('sg', Thrift.Type.STRING, 25);
-    output.writeString(this.sg);
-    output.writeFieldEnd();
-  }
-  if (this.sh !== null && this.sh !== undefined) {
-    output.writeFieldBegin('sh', Thrift.Type.STRING, 26);
-    output.writeString(this.sh);
-    output.writeFieldEnd();
-  }
-  if (this.sy !== null && this.sy !== undefined) {
-    output.writeFieldBegin('sy', Thrift.Type.STRING, 27);
-    output.writeString(this.sy);
-    output.writeFieldEnd();
-  }
-  if (this.sxi !== null && this.sxi !== undefined) {
-    output.writeFieldBegin('sxi', Thrift.Type.STRING, 28);
-    output.writeString(this.sxi);
-    output.writeFieldEnd();
-  }
-  if (this.sz !== null && this.sz !== undefined) {
-    output.writeFieldBegin('sz', Thrift.Type.STRING, 29);
-    output.writeString(this.sz);
-    output.writeFieldEnd();
-  }
   if (this.szu !== null && this.szu !== undefined) {
-    output.writeFieldBegin('szu', Thrift.Type.STRING, 30);
+    output.writeFieldBegin('szu', Thrift.Type.STRING, 17);
     output.writeString(this.szu);
     output.writeFieldEnd();
   }
   if (this.sz1 !== null && this.sz1 !== undefined) {
-    output.writeFieldBegin('sz1', Thrift.Type.STRING, 31);
+    output.writeFieldBegin('sz1', Thrift.Type.STRING, 18);
     output.writeString(this.sz1);
     output.writeFieldEnd();
   }
   if (this.sz2 !== null && this.sz2 !== undefined) {
-    output.writeFieldBegin('sz2', Thrift.Type.STRING, 32);
+    output.writeFieldBegin('sz2', Thrift.Type.STRING, 19);
     output.writeString(this.sz2);
     output.writeFieldEnd();
   }
   if (this.sa !== null && this.sa !== undefined) {
-    output.writeFieldBegin('sa', Thrift.Type.STRING, 33);
+    output.writeFieldBegin('sa', Thrift.Type.STRING, 20);
     output.writeString(this.sa);
     output.writeFieldEnd();
   }
   if (this.sb1 !== null && this.sb1 !== undefined) {
-    output.writeFieldBegin('sb1', Thrift.Type.STRING, 34);
+    output.writeFieldBegin('sb1', Thrift.Type.STRING, 21);
     output.writeString(this.sb1);
     output.writeFieldEnd();
   }
   if (this.sb2 !== null && this.sb2 !== undefined) {
-    output.writeFieldBegin('sb2', Thrift.Type.STRING, 35);
+    output.writeFieldBegin('sb2', Thrift.Type.STRING, 22);
     output.writeString(this.sb2);
     output.writeFieldEnd();
   }

@@ -74,58 +74,43 @@ struct PublicParame {
   1: string p,
   2: string g,
   3: string h,
-  4: string sg,
-  5: string sh,
-  6: string x,
-  7: string y,
-  8: string gamma,
-  9: string xi,
-  10: string sy,
-  11: string sxi,
-  12: string z,
-  13: string sz
-}
-
-struct IssueParame {
-  1: string L,
-  2: string sg,
-  3: string sh,
-  4: string yt,
-  5: string x,
-  6: string sy,
-  7: string gamma,
-  8: string sxi,
-  9: string sz
-}
-
-struct RetIssue {
-  1: string zu,
-  2: string v,
-  3: string u,
-  4: string d,
-  5: string s1,
-  6: string s2,
-  7: string t1,
-  8: string t2,
-  9: string t3,
-  10: string t4,
-  11: string t5,
-  12: string z1,
-  13: string z2,
-  14: string a,
-  15: string b1,
-  16: string b2
-  17: string szu,
-  18: string sz1,
-  19: string sz2,
-  20: string sa,
-  21: string sb1,
-  22: string sb2
+  4: string x,
+  5: string y,
+  6: string gamma,
+  7: string xi,
+  8: string z,
+  9: string zu,
+  10: string v,
+  11: string u,
+  12: string d,
+  13: string s1,
+  14: string s2,
+  15: string t1,
+  16: string t2,
+  17: string t3,
+  18: string t4,
+  19: string t5,
+  20: string z1,
+  21: string z2,
+  22: string a,
+  23: string b1,
+  24: string b2
+  25: string sg,
+  26: string sh,
+  27: string sy,
+  28: string sxi,
+  29: string sz,
+  30: string szu,
+  31: string sz1,
+  32: string sz2,
+  33: string sa,
+  34: string sb1,
+  35: string sb2
 }
 
 service setup {
+  string sayHello()
   PublicParame init(1: InitParame initParame)
-  RetIssue issue(1: IssueParame issueParame)
   ReturnOne execOne(1: ProtocolOne protocolone)
   ReturnTwo execTwo(1: ProtocolTwo protocoltwo)
 }

@@ -1,7 +1,7 @@
 window.onload = ()=>{
   $('#issuerExecuteTwo').on('click', ()=>{
     $.post('issuerExecuteTwo', {}, (res)=>{
-      jdict = JSON.parse(res);
+      let jdict = JSON.parse(res);
       $('#z1').val(jdict.z1);
       $('#z2').val(jdict.z2);
       $('#a').val(jdict.a);
@@ -23,7 +23,7 @@ window.onload = ()=>{
     retStr = retList.join('|');
     $('#m').val(retStr);
     $.post('userExecuteThree', {'m': retStr}, (res)=>{
-      jdict = JSON.parse(res);
+      let jdict = JSON.parse(res);
       $('#zeta1').val(jdict.zeta1);
       $('#zeta_1').val(jdict.zeta1);
       $('#zeta2').val(jdict.zeta2);
@@ -37,7 +37,7 @@ window.onload = ()=>{
 
   $('#issuerExecuteFour').on('click', ()=>{
     $.post('issuerExecuteFour', {}, (res)=>{
-      jdcit = JSON.parse(res);
+      let jdcit = JSON.parse(res);
       $('#c').val(jdcit.c);
       $('#r').val(jdcit.r);
     })
@@ -45,7 +45,7 @@ window.onload = ()=>{
 
   $('#userExecuteFive').on('click', ()=>{
     $.post('userExecuteFive', {}, (res)=>{
-      jdict = JSON.parse(res);
+      let jdict = JSON.parse(res);
       $('#rho').val(jdict.roi);
       $('#omega').val(jdict.omega);
       $('#sigma1').val(jdict.sigma1);

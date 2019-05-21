@@ -11,8 +11,9 @@
   <link href="fonts/font.min.css" rel="stylesheet" type="text/css">
   <!-- // Fonts -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <script type="text/javascript" src="js/contract.js"></script>
+  <!-- <script type="text/javascript" src="js/index.js"></script> -->
+  <script type="text/javascript" src="js/genpk.js"></script>
+
   <!-- <script type="text/javascript" src= "../static/js/index.js"></script> -->
   <!-- <script type="text/javascript" src= "../static/js/domain.js"></script> -->
 </head>
@@ -48,8 +49,10 @@
         <div class="content-left">
           <p><span class="article-number">Issuer</span>
             Set L, N = 256, 40 <br>
+            <label for="description">a = </label><span class=""><input id = "a1" value=<%= a%>></input></span><br>
+            <label for="description">b = </label><span class=""><input id = "b1" value=<%= b%>></input></span><br>
             <label for="description">p = </label><span class=""><input id="p1"></input></span><br>
-            <label for="description">q = </label><span class=""><input id="q1"></input></span><br>
+            <label for="description">n = </label><span class=""><input id = "n1" value=<%= n%>></input></span><br>
             <label for="description">g = </label><span class=""><input id="g1"></input></span><br>
             <label for="description">h = </label><span class=""><input id="h1"></input></span><br>
           </p>
@@ -60,9 +63,11 @@
         <div class="content-right">
           <p> <span class="article-number">User</span>
             Set L, N = 256, 40.<br>
+            <label for="description">a = </label><span class=""><input id = "a2" value=<%=a %>></input></span><br>
+            <label for="description">b = </label><span class=""><input id = "b2" value=<%=b %>></input></span><br>
             <label for="description">p = </label><span class=""><input id="p2"></input></span><br>
-            <label for="description">q = </label><span class=""><input id="q2"></input></span><br>
             <label for="description">g = </label><span class=""><input id="g2"></input></span><br>
+            <label for="description">n = </label><span class=""><input id = "n2" value=<%=n %>></input></span><br>
             <label for="description">h = </label><span class=""><input id="h2"></input></span><br>
           </p>
         </div>

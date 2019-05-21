@@ -7,11 +7,11 @@ version:1.0
 const path = require('path');
 
 module.exports = {
-  entry: './static/js/app.js',
+  entry: './unpack/genpk.js',
   output: {
 
     path: path.resolve(__dirname, './static/js/'),
-    filename: 'contract.js'
+    filename: 'genpk.js'
   }
   // module: {
   //   rules: [

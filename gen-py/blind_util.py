@@ -20,13 +20,15 @@ security_dict = {
 }
 
 def initHandler(kappa):
-  group = ECGroup(kappa);
+  group = ECGroup(kappa)
   g, h = group.random(G), group.random(G)
   x, gamma = group.random(ZR), group.random(ZR)
   y, xi = g ** x, g ** gamma
+  print('xi: ----====>>>')
+  print(xi)
   z = group.hash((g, h, y), G)
 
-  ret = [group.order(), g, h,\
+  ret = [g, h,\
          bytes.decode(group.serialize(g)), bytes.decode(group.serialize(h)),\
          x, y, gamma, xi,\
          bytes.decode(group.serialize(y)), bytes.decode(group.serialize(xi)),\
@@ -37,13 +39,19 @@ def issuerHandler(issueparam):
   group = ECGroup(security_dict[issueparam.L])
   g = group.deserialize(str.encode(issueparam.sg))
   h = group.deserialize(str.encode(issueparam.sh))
-  print(issueparam.yt)
+  # print(issueparam.yt)
+  
+  #####!!!!!!!!!!!!!!!!!!!!!!!Danger!!!!!!!!!!!!!!#######
+  # xt = group.random(ZR)
+  # yt = g ** xt
+  # print('xt: ----====>>>')
+  # print(xt)
   yt = point2Obj(int(issueparam.yt), group)
+  #####!!!!!!!!!!!!!!!!!!!!!!!Danger!!!!!!!!!!!!!!#######
+  
+  print('yt: ----====>>>')
   print(yt)
-  x = group.init(ZR, int(issueparam.x))
   gamma = group.init(ZR, int(issueparam.gamma))
-  y = group.deserialize(str.encode(issueparam.sy))
-  xi = group.deserialize(str.encode(issueparam.sxi))
   z = group.deserialize(str.encode(issueparam.sz))
 
   # ------------------------------------------------
@@ -113,8 +121,14 @@ def oneHandler(oneParameter):
   delta = d + t5
   ####----------------------------------------
   xi = group.deserialize(str.encode(oneParameter.sxi))
+  print('#@xi: ----====>>>')
+  print(xi)
   v = group.init(ZR, int(oneParameter.v))
+  print('#@v: ----====>>>')
+  print(v)
   xiv = xi ** v
+  print('#@xiv: ----====>>>')
+  print(xiv)
 
   ret = [zeta1, zeta2, alpha, beta1, beta2, epsilon, e, c, r, roi, omega, sigma1, sigma2, delta, xiv, bytes.decode(group.serialize(xiv)), bytes.decode(group.serialize(zeta1)), bytes.decode(group.serialize(zeta2))]
   return (str(i) for i in ret)

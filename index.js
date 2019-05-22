@@ -39,9 +39,17 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res)=>{
   res.render('index.ejs', {
     'a': '0',
-    'b': '7',
-    'n': '115792089237316195423570985008687907852837564279074904382605163141518161494337'
+    // 'b': '7',
+    // 'p': '115792089237316195423570985008687907853269984665640564039457584007908834671663',
+    // 'n': '115792089237316195423570985008687907852837564279074904382605163141518161494337'
+    'b': 3,
+    'p': '6277101735386680763835789423207666416102355444459739541047',
+    'n': '6277101735386680763835789423061264271957123915200845512077'
   })
+});
+
+app.get('/index', (req, res)=>{
+  res.redirect('/');
 });
 
 app.post('/setup', (req, res)=>{
@@ -66,11 +74,8 @@ app.get('/issuing', (req, res)=>{
     'L': req.session.L,
     'sg': req.session.pp.sg,
     'sh': req.session.pp.sh,
-    'yt': req.session.yt,
-    'x': req.session.pp.x,
-    'sy': req.session.pp.sy,
+    'yt': req.session.yt,    
     'gamma': req.session.pp.gamma,
-    'sxi': req.session.pp.sxi,
     'sz': req.session.pp.sz
   });
   client.issue(chunk,(err, ret)=>{

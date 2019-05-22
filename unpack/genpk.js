@@ -168,10 +168,11 @@ window.trimStr = function(str){
 
 window.onload = ()=>{
   $('#setup').on('click', ()=>{
-    $.post('setup', {'L': 256, 'N': 40}, (res)=>{
+    // $.post('setup', {'L': 256}, (res)=>{
+    $.post('setup', {'L': 192}, (res)=>{
       let jdict = JSON.parse(res);
-      $('#p1').val(jdict.p);
-      $('#p2').val(jdict.p);
+      // $('#p1').val(jdict.p);
+      // $('#p2').val(jdict.p);
       $('#g1').val(jdict.g);
       $('#h1').val(jdict.h);
       $('#g2').val(jdict.g);

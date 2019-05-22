@@ -25,7 +25,8 @@ window.identity_tracing = async function() {
     let zeta1 = $('#zeta_1').val();
     let zeta1_gx = zeta1.substring(1, zeta1.indexOf(","))
     let zeta1_gy = zeta1.substring(zeta1.indexOf(",") + 2, zeta1.length - 1)
-    
+    console.log(zeta1_gx)
+    console.log(zeta1_gy)
     let identity = AuditTracer.methods.identity_calculating(zeta1_gx, zeta1_gy);
     await identity.send();
     let identity_xiupsilon = await AuditTracer.methods.identity_tracing().call();

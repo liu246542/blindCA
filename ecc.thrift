@@ -71,19 +71,18 @@ struct ProtocolTwo {
 }
 
 struct PublicParame {
-  1: string p,
-  2: string g,
-  3: string h,
-  4: string sg,
-  5: string sh,
-  6: string x,
-  7: string y,
-  8: string gamma,
-  9: string xi,
-  10: string sy,
-  11: string sxi,
-  12: string z,
-  13: string sz
+  1: string g,
+  2: string h,
+  3: string sg,
+  4: string sh,
+  5: string x,
+  6: string y,
+  7: string gamma,
+  8: string xi,
+  9: string sy,
+  10: string sxi,
+  11: string z,
+  12: string sz
 }
 
 struct IssueParame {
@@ -91,11 +90,8 @@ struct IssueParame {
   2: string sg,
   3: string sh,
   4: string yt,
-  5: string x,
-  6: string sy,
-  7: string gamma,
-  8: string sxi,
-  9: string sz
+  5: string gamma,
+  6: string sz
 }
 
 struct RetIssue {

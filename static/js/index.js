@@ -11,7 +11,7 @@ $(function(){
 
 window.onload = ()=>{
   $('#setup').on('click', ()=>{
-    $.post('setup', {'L': 256, 'N': 40}, (res)=>{
+    $.post('setup', {'L': 192}, (res)=>{
       jdict = JSON.parse(res);
       $('#p1').val(jdict.p);
       $('#p2').val(jdict.p);

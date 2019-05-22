@@ -865,7 +865,6 @@ class ProtocolTwo(object):
 class PublicParame(object):
     """
     Attributes:
-     - p
      - g
      - h
      - sg
@@ -882,8 +881,7 @@ class PublicParame(object):
     """
 
 
-    def __init__(self, p=None, g=None, h=None, sg=None, sh=None, x=None, y=None, gamma=None, xi=None, sy=None, sxi=None, z=None, sz=None,):
-        self.p = p
+    def __init__(self, g=None, h=None, sg=None, sh=None, x=None, y=None, gamma=None, xi=None, sy=None, sxi=None, z=None, sz=None,):
         self.g = g
         self.h = h
         self.sg = sg
@@ -908,65 +906,60 @@ class PublicParame(object):
                 break
             if fid == 1:
                 if ftype == TType.STRING:
-                    self.p = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.g = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 2:
                 if ftype == TType.STRING:
-                    self.g = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.h = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 3:
                 if ftype == TType.STRING:
-                    self.h = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.sg = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 4:
                 if ftype == TType.STRING:
-                    self.sg = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.sh = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 5:
                 if ftype == TType.STRING:
-                    self.sh = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.x = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 6:
                 if ftype == TType.STRING:
-                    self.x = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.y = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 7:
                 if ftype == TType.STRING:
-                    self.y = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.gamma = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 8:
                 if ftype == TType.STRING:
-                    self.gamma = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.xi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 9:
                 if ftype == TType.STRING:
-                    self.xi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.sy = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 10:
                 if ftype == TType.STRING:
-                    self.sy = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
+                    self.sxi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
             elif fid == 11:
                 if ftype == TType.STRING:
-                    self.sxi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
-                else:
-                    iprot.skip(ftype)
-            elif fid == 12:
-                if ftype == TType.STRING:
                     self.z = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
-            elif fid == 13:
+            elif fid == 12:
                 if ftype == TType.STRING:
                     self.sz = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
@@ -981,56 +974,52 @@ class PublicParame(object):
             oprot.trans.write(oprot._fast_encode(self, [self.__class__, self.thrift_spec]))
             return
         oprot.writeStructBegin('PublicParame')
-        if self.p is not None:
-            oprot.writeFieldBegin('p', TType.STRING, 1)
-            oprot.writeString(self.p.encode('utf-8') if sys.version_info[0] == 2 else self.p)
-            oprot.writeFieldEnd()
         if self.g is not None:
-            oprot.writeFieldBegin('g', TType.STRING, 2)
+            oprot.writeFieldBegin('g', TType.STRING, 1)
             oprot.writeString(self.g.encode('utf-8') if sys.version_info[0] == 2 else self.g)
             oprot.writeFieldEnd()
         if self.h is not None:
-            oprot.writeFieldBegin('h', TType.STRING, 3)
+            oprot.writeFieldBegin('h', TType.STRING, 2)
             oprot.writeString(self.h.encode('utf-8') if sys.version_info[0] == 2 else self.h)
             oprot.writeFieldEnd()
         if self.sg is not None:
-            oprot.writeFieldBegin('sg', TType.STRING, 4)
+            oprot.writeFieldBegin('sg', TType.STRING, 3)
             oprot.writeString(self.sg.encode('utf-8') if sys.version_info[0] == 2 else self.sg)
             oprot.writeFieldEnd()
         if self.sh is not None:
-            oprot.writeFieldBegin('sh', TType.STRING, 5)
+            oprot.writeFieldBegin('sh', TType.STRING, 4)
             oprot.writeString(self.sh.encode('utf-8') if sys.version_info[0] == 2 else self.sh)
             oprot.writeFieldEnd()
         if self.x is not None:
-            oprot.writeFieldBegin('x', TType.STRING, 6)
+            oprot.writeFieldBegin('x', TType.STRING, 5)
             oprot.writeString(self.x.encode('utf-8') if sys.version_info[0] == 2 else self.x)
             oprot.writeFieldEnd()
         if self.y is not None:
-            oprot.writeFieldBegin('y', TType.STRING, 7)
+            oprot.writeFieldBegin('y', TType.STRING, 6)
             oprot.writeString(self.y.encode('utf-8') if sys.version_info[0] == 2 else self.y)
             oprot.writeFieldEnd()
         if self.gamma is not None:
-            oprot.writeFieldBegin('gamma', TType.STRING, 8)
+            oprot.writeFieldBegin('gamma', TType.STRING, 7)
             oprot.writeString(self.gamma.encode('utf-8') if sys.version_info[0] == 2 else self.gamma)
             oprot.writeFieldEnd()
         if self.xi is not None:
-            oprot.writeFieldBegin('xi', TType.STRING, 9)
+            oprot.writeFieldBegin('xi', TType.STRING, 8)
             oprot.writeString(self.xi.encode('utf-8') if sys.version_info[0] == 2 else self.xi)
             oprot.writeFieldEnd()
         if self.sy is not None:
-            oprot.writeFieldBegin('sy', TType.STRING, 10)
+            oprot.writeFieldBegin('sy', TType.STRING, 9)
             oprot.writeString(self.sy.encode('utf-8') if sys.version_info[0] == 2 else self.sy)
             oprot.writeFieldEnd()
         if self.sxi is not None:
-            oprot.writeFieldBegin('sxi', TType.STRING, 11)
+            oprot.writeFieldBegin('sxi', TType.STRING, 10)
             oprot.writeString(self.sxi.encode('utf-8') if sys.version_info[0] == 2 else self.sxi)
             oprot.writeFieldEnd()
         if self.z is not None:
-            oprot.writeFieldBegin('z', TType.STRING, 12)
+            oprot.writeFieldBegin('z', TType.STRING, 11)
             oprot.writeString(self.z.encode('utf-8') if sys.version_info[0] == 2 else self.z)
             oprot.writeFieldEnd()
         if self.sz is not None:
-            oprot.writeFieldBegin('sz', TType.STRING, 13)
+            oprot.writeFieldBegin('sz', TType.STRING, 12)
             oprot.writeString(self.sz.encode('utf-8') if sys.version_info[0] == 2 else self.sz)
             oprot.writeFieldEnd()
         oprot.writeFieldStop()
@@ -1058,24 +1047,18 @@ class IssueParame(object):
      - sg
      - sh
      - yt
-     - x
-     - sy
      - gamma
-     - sxi
      - sz
 
     """
 
 
-    def __init__(self, L=None, sg=None, sh=None, yt=None, x=None, sy=None, gamma=None, sxi=None, sz=None,):
+    def __init__(self, L=None, sg=None, sh=None, yt=None, gamma=None, sz=None,):
         self.L = L
         self.sg = sg
         self.sh = sh
         self.yt = yt
-        self.x = x
-        self.sy = sy
         self.gamma = gamma
-        self.sxi = sxi
         self.sz = sz
 
     def read(self, iprot):
@@ -1109,25 +1092,10 @@ class IssueParame(object):
                     iprot.skip(ftype)
             elif fid == 5:
                 if ftype == TType.STRING:
-                    self.x = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
-                else:
-                    iprot.skip(ftype)
-            elif fid == 6:
-                if ftype == TType.STRING:
-                    self.sy = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
-                else:
-                    iprot.skip(ftype)
-            elif fid == 7:
-                if ftype == TType.STRING:
                     self.gamma = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
                     iprot.skip(ftype)
-            elif fid == 8:
-                if ftype == TType.STRING:
-                    self.sxi = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
-                else:
-                    iprot.skip(ftype)
-            elif fid == 9:
+            elif fid == 6:
                 if ftype == TType.STRING:
                     self.sz = iprot.readString().decode('utf-8') if sys.version_info[0] == 2 else iprot.readString()
                 else:
@@ -1158,24 +1126,12 @@ class IssueParame(object):
             oprot.writeFieldBegin('yt', TType.STRING, 4)
             oprot.writeString(self.yt.encode('utf-8') if sys.version_info[0] == 2 else self.yt)
             oprot.writeFieldEnd()
-        if self.x is not None:
-            oprot.writeFieldBegin('x', TType.STRING, 5)
-            oprot.writeString(self.x.encode('utf-8') if sys.version_info[0] == 2 else self.x)
-            oprot.writeFieldEnd()
-        if self.sy is not None:
-            oprot.writeFieldBegin('sy', TType.STRING, 6)
-            oprot.writeString(self.sy.encode('utf-8') if sys.version_info[0] == 2 else self.sy)
-            oprot.writeFieldEnd()
         if self.gamma is not None:
-            oprot.writeFieldBegin('gamma', TType.STRING, 7)
+            oprot.writeFieldBegin('gamma', TType.STRING, 5)
             oprot.writeString(self.gamma.encode('utf-8') if sys.version_info[0] == 2 else self.gamma)
             oprot.writeFieldEnd()
-        if self.sxi is not None:
-            oprot.writeFieldBegin('sxi', TType.STRING, 8)
-            oprot.writeString(self.sxi.encode('utf-8') if sys.version_info[0] == 2 else self.sxi)
-            oprot.writeFieldEnd()
         if self.sz is not None:
-            oprot.writeFieldBegin('sz', TType.STRING, 9)
+            oprot.writeFieldBegin('sz', TType.STRING, 6)
             oprot.writeString(self.sz.encode('utf-8') if sys.version_info[0] == 2 else self.sz)
             oprot.writeFieldEnd()
         oprot.writeFieldStop()
@@ -1561,19 +1517,18 @@ ProtocolTwo.thrift_spec = (
 all_structs.append(PublicParame)
 PublicParame.thrift_spec = (
     None,  # 0
-    (1, TType.STRING, 'p', 'UTF8', None, ),  # 1
-    (2, TType.STRING, 'g', 'UTF8', None, ),  # 2
-    (3, TType.STRING, 'h', 'UTF8', None, ),  # 3
-    (4, TType.STRING, 'sg', 'UTF8', None, ),  # 4
-    (5, TType.STRING, 'sh', 'UTF8', None, ),  # 5
-    (6, TType.STRING, 'x', 'UTF8', None, ),  # 6
-    (7, TType.STRING, 'y', 'UTF8', None, ),  # 7
-    (8, TType.STRING, 'gamma', 'UTF8', None, ),  # 8
-    (9, TType.STRING, 'xi', 'UTF8', None, ),  # 9
-    (10, TType.STRING, 'sy', 'UTF8', None, ),  # 10
-    (11, TType.STRING, 'sxi', 'UTF8', None, ),  # 11
-    (12, TType.STRING, 'z', 'UTF8', None, ),  # 12
-    (13, TType.STRING, 'sz', 'UTF8', None, ),  # 13
+    (1, TType.STRING, 'g', 'UTF8', None, ),  # 1
+    (2, TType.STRING, 'h', 'UTF8', None, ),  # 2
+    (3, TType.STRING, 'sg', 'UTF8', None, ),  # 3
+    (4, TType.STRING, 'sh', 'UTF8', None, ),  # 4
+    (5, TType.STRING, 'x', 'UTF8', None, ),  # 5
+    (6, TType.STRING, 'y', 'UTF8', None, ),  # 6
+    (7, TType.STRING, 'gamma', 'UTF8', None, ),  # 7
+    (8, TType.STRING, 'xi', 'UTF8', None, ),  # 8
+    (9, TType.STRING, 'sy', 'UTF8', None, ),  # 9
+    (10, TType.STRING, 'sxi', 'UTF8', None, ),  # 10
+    (11, TType.STRING, 'z', 'UTF8', None, ),  # 11
+    (12, TType.STRING, 'sz', 'UTF8', None, ),  # 12
 )
 all_structs.append(IssueParame)
 IssueParame.thrift_spec = (
@@ -1582,11 +1537,8 @@ IssueParame.thrift_spec = (
     (2, TType.STRING, 'sg', 'UTF8', None, ),  # 2
     (3, TType.STRING, 'sh', 'UTF8', None, ),  # 3
     (4, TType.STRING, 'yt', 'UTF8', None, ),  # 4
-    (5, TType.STRING, 'x', 'UTF8', None, ),  # 5
-    (6, TType.STRING, 'sy', 'UTF8', None, ),  # 6
-    (7, TType.STRING, 'gamma', 'UTF8', None, ),  # 7
-    (8, TType.STRING, 'sxi', 'UTF8', None, ),  # 8
-    (9, TType.STRING, 'sz', 'UTF8', None, ),  # 9
+    (5, TType.STRING, 'gamma', 'UTF8', None, ),  # 5
+    (6, TType.STRING, 'sz', 'UTF8', None, ),  # 6
 )
 all_structs.append(RetIssue)
 RetIssue.thrift_spec = (

@@ -4,22 +4,24 @@
 <head>
   <meta charset="utf-8">
   <title>AuditableBlindCA - Preparation</title>
-  <link rel="stylesheet" href="css/normalize.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
   <!-- Fonts -->
-  <link href='fonts/roboto.css' rel='stylesheet' type='text/css'>
-  <link href="fonts/font.min.css" rel="stylesheet" type="text/css">
+  <!-- <link href='fonts/roboto.css' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="fonts/font.min.css" rel="stylesheet" type="text/css"> -->
   <!-- // Fonts -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <!-- <script type="text/javascript" src="js/index.js"></script> -->
   <script type="text/javascript" src="js/genpk.js"></script>
-
-  <!-- <script type="text/javascript" src= "../static/js/index.js"></script> -->
-  <!-- <script type="text/javascript" src= "../static/js/domain.js"></script> -->
+  
 </head>
 
 <body>
   <!-- Vertical Timeline -->
+  
   <section id="conference-timeline">
     <div class="container">
       <ol class="timeline">
@@ -41,8 +43,18 @@
         </li>
       </ol>
     </div>
-    1. Set up parameters &nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript: void(0)" class="" id="setup">Set up</a>
+
+    <h2 style="position: relative;top: -10px;">
+      <center>Version: Elliptic Curve Cryptography <i class="fa fa-expeditedssl"></i></center>        
+    </h2>
+
+    <h3>
+    1. Set up parameters:
+    <a class="choosItem checked" id="Secp256k1">Secp256k1</a>
+    <a class="choosItem" id="Secp192k1" >Secp192k1</a>
+    </h3>    
     <hr>
+    
     <!-- Article -->
     <div class="timeline-article">
       <div class="content-left-container">

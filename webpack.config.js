@@ -12,23 +12,8 @@ module.exports = {
     trace: './unpack/trace.js',
   },
   output: {
+    publicPath: './js/',
     path: path.resolve(__dirname, './static/js/'),
     filename: '[name].js'
   }
-  // module: {
-  //   rules: [
-  //     { 
-  //       test: /\.json$/, use: 'json-loader'
-  //     },
-  //     {
-  //       test: /\.js$/,
-  //       exclude: /(node_modules|bower_components)/,
-  //       loader: 'babel-loader',
-  //       query: {
-  //         presets: ['es2015'],
-  //         plugins: ['transform-runtime']
-  //       }
-  //     }
-  //   ]
-  // }
 }

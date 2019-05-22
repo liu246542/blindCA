@@ -9,6 +9,8 @@ def point2Obj(x, group):
              711: 48,
              714: 64}
   temp_str = (dict_ecc[group.groupType()] - len(temp_str)) * '0' + temp_str
+  print('---=====>>>>>' + str(len(temp_str)))
+  # [41372892327122402259051087308354775842713543464993447959664366536264693688827,43944647364956715755691152459512959705768181475922053403345518731063504387091]
   return group.encode(binascii.a2b_hex(temp_str), include_ctr=True)
 
 security_dict = {
@@ -37,6 +39,7 @@ def issuerHandler(issueparam):
   h = group.deserialize(str.encode(issueparam.sh))
   print(issueparam.yt)
   yt = point2Obj(int(issueparam.yt), group)
+  print(yt)
   x = group.init(ZR, int(issueparam.x))
   gamma = group.init(ZR, int(issueparam.gamma))
   y = group.deserialize(str.encode(issueparam.sy))

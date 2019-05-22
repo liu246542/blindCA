@@ -214,6 +214,15 @@ app.post('/verifyCred', (req, res)=>{
   });
 });
 
+app.get('/tracing', (req, res)=>{
+  console.log(req.session.one.xiv);
+  res.render('tracing.ejs', {
+    'xiv': req.session.one.xiv,
+    'zeta1': req.session.one.zeta1,
+    'smadress': req.session.address
+  });
+});
+
 let server = app.listen(8080, ()=>{
   let host = server.address().address;
   let port = server.address().port;

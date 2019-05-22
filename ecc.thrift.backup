@@ -109,7 +109,6 @@ struct PublicParame {
 }
 
 service setup {
-  string sayHello()
   PublicParame init(1: InitParame initParame)
   ReturnOne execOne(1: ProtocolOne protocolone)
   ReturnTwo execTwo(1: ProtocolTwo protocoltwo)

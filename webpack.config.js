@@ -7,11 +7,11 @@ version:1.0
 const path = require('path');
 
 module.exports = {
-  entry: './unpack/genpk.js',
+  entry: './unpack/trace.js',
   output: {
 
     path: path.resolve(__dirname, './static/js/'),
-    filename: 'genpk.js'
+    filename: 'trace.js'
   }
   // module: {
   //   rules: [

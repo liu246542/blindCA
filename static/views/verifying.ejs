@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <title>AuditableBlindCA - Verifying</title>
   
-  <link rel="stylesheet" href="css/normalize.min.css">
   <link rel="stylesheet" href="css/style.css">
+
   <!-- Fonts -->
-  <link href='fonts/roboto.css' rel='stylesheet' type='text/css'>
-  <link href="fonts/font.min.css" rel="stylesheet" type="text/css">
-    
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
   <!-- // Fonts -->
   
   <script type="text/javascript" src= "js/jquery.min.js"></script>
   <script type="text/javascript" src= "js/verifying.js"></script>
-  <!-- <script type="text/javascript" src= "../static/js/domain.js"></script> -->
+
+  <!-- Math -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/contrib/auto-render.min.js"></script>
+  <!-- Math -->
   
 </head>
 <body>
@@ -54,17 +57,18 @@
     <div class="content-right">
     <p>
     <span class="article-number">User</span>
-    <label for="description"> y = </label><span class=""><input id = "y1" value=<%= y %> ></input></span><br>
-    <label for="description">&#950;<sub>1</sub> = </label><span class=""><input id = "zeta1" value=<%= zeta1 %>></input></span><br>
-    <label for="description">&#961; = </label><span class=""><input id = "rho" value=<%= roi %>></input></span><br>
-    <label for="description">&#969; = </label><span class=""><input id = "omega" value=<%= omega %>></input></span><br>
-    <label for="description">&#963;<sub>1</sub> = </label><span class=""><input id = "sigma1" value=<%= sigma1 %>></input></span><br>
-    <label for="description">&#963;<sub>2</sub> = </label><span class=""><input id = "sigma2" value=<%= sigma2 %>></input></span><br>
-    <label for="description">&#948; = </label><span class=""><input id = "delta" value=<%= delta %>></input></span><br>
+    <label for="description"> $y=$ </label><span class=""><input id = "y1" value=<%= y %> ></input></span><br>
+    <label for="description"> $\zeta_1=$</label><span class=""><input id = "zeta1" value=<%= zeta1 %>></input></span><br>
+    <label for="description"> $\rho=$ </label><span class=""><input id = "rho" value=<%= roi %>></input></span><br>
+    <label for="description">$\omega=$ </label><span class=""><input id = "omega" value=<%= omega %>></input></span><br>
+    <label for="description"> $\sigma_1=$</label><span class=""><input id = "sigma1" value=<%= sigma1 %>></input></span><br>
+    <label for="description"> $\sigma_2=$</label><span class=""><input id = "sigma2" value=<%= sigma2 %>></input></span><br>
+    <label for="description"> $\delta=$</label><span class=""><input id = "delta" value=<%= delta %>></input></span><br>
     <!-- m = <span class=""><input id = "m"></input></span><br> -->
     <hr>
-    Cred = (&#931;, m), 
-    &#931; = (&#950;<sub>1</sub>, &#961;,&#969;,&#963;<sub>1</sub>,&#963;<sub>2</sub>,&#948;) <br>
+
+    $\mathsf{Cred}=(\Sigma,m), \Sigma=(\zeta_1,\rho, \omega, \sigma_1, \sigma_2, \delta)$
+    <br>
     <a href = "javascript: void(0)" class="" id = "button2" >Show full credential</a>
     </p>
     </div>
@@ -79,9 +83,9 @@
     <p>
     <span class="article-number" style ="font-size:42px;left:-140px">Verifier</span>
     <a href = "javascript: void(0)" class="" id = "verifyCred">VerifyCred</a><br>
-    <label class="textdescription"> y = </label><span class=""><input id = "y2" value=<%=y %>></input></span><br>
-    <label class="textdescription"> &#969; + &#948;  = </label><span class=""><input id = "omegadelta"></input></span><br>
-    <label class="textdescription"> hashresult = </label> <span class=""><input id = "hashresult"></input></span><br>
+    <label class="textdescription"> $y=$ </label><span class=""><input id = "y2" value=<%=y %>></input></span><br>
+    <label class="textdescription"> $\omega+\delta=$ </label><span class=""><input id = "omegadelta"></input></span><br>
+    <label class="textdescription"> $\mathsf{hashresult}=$</label> <span class=""><input id = "hashresult"></input></span><br>
     <hr>
     <p id = "res" style = "color: #1f3583 "> </p>
     </p>
@@ -141,6 +145,20 @@
 <div id="copyright">
         <p>&copy; Copyright 2019 Rujia. All Rights Reserved</p>
 </div>
+
+<script>
+renderMathInElement(document.body, {
+  delimiters: [{
+    left: "$$",
+    right: "$$",
+    display: true
+  }, {
+    left: "$",
+    right: "$",
+    display: false
+  }]
+});
+</script>
 
 </body>
 </html>

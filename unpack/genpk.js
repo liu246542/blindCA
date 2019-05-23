@@ -101,6 +101,8 @@ window.load = function(){
   
     $("#myicon2").removeClass();
     $("#myicon2").addClass("myicon-tick-checked");
+    $("#myicon1").removeClass();
+    $("#myicon1").addClass("myicon-tick-checked");
   });
 }
 
@@ -167,17 +169,48 @@ window.trimStr = function(str){
 }
 
 window.onload = ()=>{
-  $('#setup').on('click', ()=>{
-    // $.post('setup', {'L': 256}, (res)=>{
-    $.post('setup', {'L': 192}, (res)=>{
+  $('#Secp256k1').on('click', ()=>{
+    $('#Secp256k1').attr('class','choosItem checked');
+    $('#Secp192k1').removeClass('checked');
+    $.post('setup', {'L': 256}, (res)=>{
       let jdict = JSON.parse(res);
-      // $('#p1').val(jdict.p);
-      // $('#p2').val(jdict.p);
+      $('#a1').val(jdict.a);
+      $('#b1').val(jdict.b);
+      $('#p1').val(jdict.p);
+      $('#n1').val(jdict.n);
+
+      $('#a2').val(jdict.a);
+      $('#b2').val(jdict.b);
+      $('#p2').val(jdict.p);
+      $('#n2').val(jdict.n);
+
       $('#g1').val(jdict.g);
       $('#h1').val(jdict.h);
       $('#g2').val(jdict.g);
-      $('#h2').val(jdict.h);      
-      // console.log(res);
+      $('#h2').val(jdict.h);
+    })
+  });
+  $('#Secp192k1').on('click', ()=>{
+    $('#Secp192k1').attr('class','choosItem checked');
+    $('#Secp256k1').removeClass('checked');
+    $.post('setup', {'L': 192}, (res)=>{
+      let jdict = JSON.parse(res);
+
+      $('#a1').val(jdict.a);
+      $('#b1').val(jdict.b);
+      $('#p1').val(jdict.p);
+      $('#n1').val(jdict.n);
+
+      $('#a2').val(jdict.a);
+      $('#b2').val(jdict.b);
+      $('#p2').val(jdict.p);
+      $('#n2').val(jdict.n);
+
+
+      $('#g1').val(jdict.g);
+      $('#h1').val(jdict.h);
+      $('#g2').val(jdict.g);
+      $('#h2').val(jdict.h);
     })
   });
 

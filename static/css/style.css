@@ -4,6 +4,8 @@ body {
   font-weight: 400;
 }
 
+
+
 /*===== Vertical Timeline ===== e6e6e6 */
 #conference-timeline {
   position: relative;
@@ -159,7 +161,7 @@ body {
 }
 .timeline-article .content-left-container,
 .timeline-article .content-right-container {
-  max-width: 44%;
+  max-width: 49%;
   width: 100%;
 }
 .timeline-article .timeline-author {
@@ -190,7 +192,7 @@ body {
 }
 
 .timeline-article .sp {
-  margin: 0 0 0 0px;
+  margin: 0 0 0 0;
   padding: 0;
   color: #242424;
   font-size: 14px;
@@ -385,8 +387,7 @@ label{
 
 .textdescription{
         display: inline-block;
-        width: 130px;
-        text-align: right;
+        width: 169px;
 }
 
 .isuuerdescription{

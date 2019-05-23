@@ -37,15 +37,7 @@ app.set('views', path.join(__dirname, 'static/views'))
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res)=>{
-  res.render('index.ejs', {
-    'a': '0',
-    // 'b': '7',
-    // 'p': '115792089237316195423570985008687907853269984665640564039457584007908834671663',
-    // 'n': '115792089237316195423570985008687907852837564279074904382605163141518161494337'
-    'b': 3,
-    'p': '6277101735386680763835789423207666416102355444459739541047',
-    'n': '6277101735386680763835789423061264271957123915200845512077'
-  })
+  res.render('index.ejs')
 });
 
 app.get('/index', (req, res)=>{
@@ -57,47 +49,75 @@ app.post('/setup', (req, res)=>{
   let chunk = new ttypes.InitParame({
     'L': req.body.L
   });
+  let ecctype = {
+    '192': {
+      'a': '0',
+      'b': '3',
+      'p': '6277101735386680763835789423207666416102355444459739541047',
+      'n': '6277101735386680763835789423061264271957123915200845512077'
+    },
+    '256': {
+      'a': '0',
+      'b': '7',
+      'p': '115792089237316195423570985008687907853269984665640564039457584007908834671663',
+      'n': '115792089237316195423570985008687907852837564279074904382605163141518161494337'
+    }
+  };
   client.init(chunk,(err, ret)=>{
     req.session.pp = ret;
-    res.json(JSON.stringify(ret));
+    res.json(JSON.stringify({
+      'g': ret.g,
+      'h': ret.h,
+      'a': ecctype[req.session.L].a,
+      'b': ecctype[req.session.L].b,
+      'p': ecctype[req.session.L].p,
+      'n': ecctype[req.session.L].n
+    }));
   });
 });
 
 app.post('/sendyt', (req, res)=>{
   req.session.address = req.body.contractAddress;
   req.session.yt = req.body.yt;
-  res.send('I am fine');
+  res.send('I am fine, thank you');
 });
 
-app.get('/issuing', (req, res)=>{
-  let chunk = new ttypes.IssueParame({
-    'L': req.session.L,
-    'sg': req.session.pp.sg,
-    'sh': req.session.pp.sh,
-    'yt': req.session.yt,    
-    'gamma': req.session.pp.gamma,
-    'sz': req.session.pp.sz
-  });
-  client.issue(chunk,(err, ret)=>{
-    req.session.issres = ret;
-    res.render('issuing.ejs', {
+app.get('/issuing', (req, res)=>{  
+  if(!req.session.yt){
+    res.redirect('/');
+  } else{
+    let chunk = new ttypes.IssueParame({
+      'L': req.session.L,
+      'sg': req.session.pp.sg,
+      'sh': req.session.pp.sh,
+      'yt': req.session.yt,    
       'gamma': req.session.pp.gamma,
-      'xi': req.session.pp.xi,
-      'z': req.session.pp.z,
-      'zu': ret.zu,
-      'v': ret.v,
-      'u': ret.u,
-      's1': ret.s1,
-      's2': ret.s2,
-      'd': ret.d,
-      't1': ret.t1,
-      't2': ret.t2,
-      't3': ret.t3,
-      't4': ret.t4,
-      't5': ret.t5,
-      'y': req.session.pp.y
+      'sz': req.session.pp.sz
     });
-  });  
+
+    client.issue(chunk,(err, ret)=>{
+      req.session.issres = ret;
+      res.render('issuing.ejs', {
+        'gamma': req.session.pp.gamma,
+        'xi': req.session.pp.xi,
+        'z': req.session.pp.z,
+        'zu': ret.zu,
+        'v': ret.v,
+        'u': ret.u,
+        's1': ret.s1,
+        's2': ret.s2,
+        'd': ret.d,
+        't1': ret.t1,
+        't2': ret.t2,
+        't3': ret.t3,
+        't4': ret.t4,
+        't5': ret.t5,
+        'y': req.session.pp.y
+      });
+    });
+  }
+  
+  
 });
 
 app.post('/issuerkey', (req, res)=>{
@@ -186,16 +206,20 @@ app.post('/issuerExecuteSix', (req, res)=>{
 });
 
 app.get('/verifying', (req, res)=>{
-  padding = {
-    'y': req.session.pp.y,
-    'zeta1': req.session.one.zeta1,
-    'roi': req.session.one.roi,
-    'omega': req.session.one.omega,
-    'sigma1': req.session.one.sigma1,
-    'sigma2': req.session.one.sigma2,
-    'delta': req.session.one.delta
-  };
-  res.render('verifying.ejs', padding);
+  if(!req.session.m){
+    res.redirect('/');
+  }else{
+    padding = {
+      'y': req.session.pp.y,
+      'zeta1': req.session.one.zeta1,
+      'roi': req.session.one.roi,
+      'omega': req.session.one.omega,
+      'sigma1': req.session.one.sigma1,
+      'sigma2': req.session.one.sigma2,
+      'delta': req.session.one.delta
+    };
+    res.render('verifying.ejs', padding);
+  }
 });
 
 app.post('/verifyCred', (req, res)=>{
@@ -220,12 +244,15 @@ app.post('/verifyCred', (req, res)=>{
 });
 
 app.get('/tracing', (req, res)=>{
-  console.log(req.session.one.xiv);
-  res.render('tracing.ejs', {
-    'xiv': req.session.one.xiv,
-    'zeta1': req.session.one.zeta1,
-    'smadress': req.session.address
-  });
+  if(!req.session.one){
+    res.redirect('/');
+  }else{
+    res.render('tracing.ejs', {
+      'xiv': req.session.one.xiv,
+      'zeta1': req.session.one.zeta1,
+      'smadress': req.session.address
+    });
+  }  
 });
 
 let server = app.listen(8080, ()=>{

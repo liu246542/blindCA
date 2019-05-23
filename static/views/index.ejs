@@ -7,18 +7,21 @@
   <!-- <link rel="stylesheet" type="text/css" href="css/normalize.min.css"> -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-
   <!-- Fonts -->
-  <!-- <link href='fonts/roboto.css' rel='stylesheet' type='text/css'> -->
-  <!-- <link href="fonts/font.min.css" rel="stylesheet" type="text/css"> -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
   <!-- // Fonts -->
+
+  <!-- Math -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/contrib/auto-render.min.js"></script>
+  <!-- Math -->
+  
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <!-- <script type="text/javascript" src="js/index.js"></script> -->
   <script type="text/javascript" src="js/genpk.js"></script>
   
 </head>
-
 <body>
   <!-- Vertical Timeline -->
   
@@ -50,9 +53,9 @@
 
     <h3>
     1. Set up parameters:
-    <a class="choosItem checked" id="Secp256k1">Secp256k1</a>
+    <a class="choosItem" id="Secp256k1">Secp256k1</a>
     <a class="choosItem" id="Secp192k1" >Secp192k1</a>
-    </h3>    
+    </h3>
     <hr>
     
     <!-- Article -->
@@ -61,12 +64,12 @@
         <div class="content-left">
           <p><span class="article-number">Issuer</span>
             Set L, N = 256, 40 <br>
-            <label for="description">a = </label><span class=""><input id = "a1" value=<%= a%>></input></span><br>
-            <label for="description">b = </label><span class=""><input id = "b1" value=<%= b%>></input></span><br>
-            <label for="description">p = </label><span class=""><input id="p1" value=<%= p%>></input></span><br>
-            <label for="description">n = </label><span class=""><input id = "n1" value=<%= n%>></input></span><br>
-            <label for="description">g = </label><span class=""><input id="g1"></input></span><br>
-            <label for="description">h = </label><span class=""><input id="h1"></input></span><br>
+            <label for="description">$a=$</label><span class=""><input id = "a1" ></input></span><br>
+            <label for="description">$b=$</label><span class=""><input id = "b1" ></input></span><br>
+            <label for="description">$p=$</label><span class=""><input id="p1" ></input></span><br>
+            <label for="description">$n=$</label><span class=""><input id = "n1" ></input></span><br>
+            <label for="description">$g=$</label><span class=""><input id="g1"></input></span><br>
+            <label for="description">$h=$</label><span class=""><input id="h1"></input></span><br>
           </p>
         </div>
         <span class="timeline-author"></span>
@@ -75,12 +78,12 @@
         <div class="content-right">
           <p> <span class="article-number">User</span>
             Set L, N = 256, 40.<br>
-            <label for="description">a = </label><span class=""><input id = "a2" value=<%=a %>></input></span><br>
-            <label for="description">b = </label><span class=""><input id = "b2" value=<%=b %>></input></span><br>
-            <label for="description">p = </label><span class=""><input id="p2" value=<%= p%>></input></span><br>
-            <label for="description">g = </label><span class=""><input id="g2"></input></span><br>
-            <label for="description">n = </label><span class=""><input id = "n2" value=<%=n %>></input></span><br>
-            <label for="description">h = </label><span class=""><input id="h2"></input></span><br>
+            <label for="description">$a=$</label><span class=""><input id = "a2" ></input></span><br>
+            <label for="description">$b=$</label><span class=""><input id = "b2" ></input></span><br>
+            <label for="description">$p=$</label><span class=""><input id="p2" ></input></span><br>
+            <label for="description">$n=$</label><span class=""><input id = "n2" ></input></span><br>
+            <label for="description">$g=$</label><span class=""><input id="g2"></input></span><br>            
+            <label for="description">$h=$</label><span class=""><input id="h2"></input></span><br>
           </p>
         </div>
       </div>
@@ -90,7 +93,10 @@
     -->
     </div>
     <!-- // Article -->
-  2. Key Generation
+  <h3>
+    2. Key Generation    
+  </h3>
+  
   <hr>
   <!-- Article -->
   <div class="timeline-article">
@@ -98,19 +104,19 @@
       <div class="content-left">
         <p class="sp">
           Please click <a href="javascript: void(0)" class="" id="issuerkey">here</a> to generation issuer's public key and private key.<br>
-          <label class="textdescription">x <font color="red">(private)</font> = </label> <span class=""><input id="x"></input></span><br>
-          <label class="textdescription">y (public) = g<sup>x</sup> = </label> <span class=""><input id="y"></input></span><br>
-          <label class="textdescription">&#918; = &#919;<sub>1</sub>(p,q,g,h,y) = </label> <span class=""><input id="z1"></input></span><br>
+          <label class="textdescription">$x$ <font color="red">(private)</font> $=$ </label> <span class=""><input id="x"></input></span><br>
+          <label class="textdescription">$y$ (public) $=g^x=$ </label> <span class=""><input id="y"></input></span><br>
+          <label class="textdescription">$Z=H_1(p,q,g,h,y)=$ </label> <span class=""><input id="z1"></input></span><br>
         </p>
       </div>
     </div>
     <div class="content-right-container">
       <div class="content-right">
         <p class="sp">
-          Please click <a href="javascript: void(0)" class="" id="userkey">here</a> to generation user's public key and private key.<br>
-          <label class="textdescription">&#955; <font color="red">(private)</font> = </label><span class=""><input id="gamma"></input></span><br>
-          <label class="textdescription">&#958; (public) = g<sup>&#955;</sup> = </label><span class=""><input id="xi"></input></span><br>
-          <label class="textdescription">&#918; = &#919;<sub>1</sub>(p,q,g,h,y) = </label><span class=""><input id="z2"></input></span><br>
+          Please click <a href="javascript: void(0)" class="" id="userkey">here</a> to generation user's public key and private key.<br><br>
+          <label class="textdescription">$\lambda$ <font color="red">(private)</font> $=$ </label><span class=""><input id="gamma"></input></span><br>
+          <label class="textdescription">$\xi$ (public) $=g^\lambda=$ </label><span class=""><input id="xi"></input></span><br>
+          <label class="textdescription">$Z=H_1(p,q,g,h,y)=$</label><span class=""><input id="z2"></input></span><br>
         </p>
       </div>
       <!-- <span class="timeline-author">John Doe</span> -->
@@ -120,13 +126,15 @@
     </div> -->
   </div>
   <!-- // Article -->
-  3. Smart Contract Registration
+  <h3>
+    3. Smart Contract Registration
+  </h3>  
   <hr>
   <b>Please do the following steps to deploy the privacy-preserving smart contract and register the parameters</b> <br><br>
   <div style="width:100%; background: #e9ecef;">
     <div class="timeline-wrapper">
       <div class="node" id="node1" style="display: ''">
-        <h3><span class="myicon-tick-checked" id="myicon1"></span></h3>
+        <h3><span class="myicon-tick-uncheck" id="myicon1"></span></h3>
         <p> 3.1.Please <a href="javascript: void(0)" class="" id="confirm">ensure</a> that you have installed the <a href="https://metamask.io/" target="_blank"> MetaMask </a> environment.
           <br> <br>
           <div id="check-status" class="alert alert-success" style="display:none;width: 80%">
@@ -137,7 +145,7 @@
       <div class="node" id="node2" style="display: ''">
         <h3><span class="myicon-tick-uncheck" id="myicon2"></span></h3>
         <p> 3.2. Please check the below certificate-tracer smart contract, we recommend you to use <a href="https://remix.ethereum.org/#optimize=false&version=builtin"> Remix </a> to analysis and debug the code.</p>
-        <textarea rows=7 cols=100 readonly style="width: 99%">
+        <pre style="width: 99%; overflow-y: auto; overflow-x: hidden; height: 180px;">
                   pragma solidity ^0.4.18;
                     contract AuditTracer {
                      
@@ -246,7 +254,7 @@
                         }
                     
                     }
-          </textarea>
+          </pre>          
       </div>
       <div class="node" id="node3" style="display: ''">
         <h3><span class="myicon-tick-uncheck" id="myicon3"></span></h3>
@@ -278,7 +286,7 @@
       </div>
       <div class="node" id="node6" style="display: ''">
         <h3><span class="myicon-tick-uncheck" id="myicon6"></span></h3>
-        <p>3.6. Congratulations!!!, you finished all the registrations. Please click <a href="" id="issueCred">here</a> to continue
+        <p>3.6. Congratulations!!!, you finished all the registrations. Please click Issuing to continue
           next issuing steps.
       </div>
     </div>
@@ -292,6 +300,19 @@
   <div id="copyright">
     <p>&copy; Copyright 2019 Rujia. All Rights Reserved</p>
   </div>
+  <script>
+  renderMathInElement(document.body, {
+    delimiters: [{
+      left: "$$",
+      right: "$$",
+      display: true
+    }, {
+      left: "$",
+      right: "$",
+      display: false
+    }]
+  });
+  </script>
 </body>
 
 </html>

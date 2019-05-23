@@ -8,9 +8,7 @@ def point2Obj(x, group):
   dict_ecc = {708: 42,
              711: 48,
              714: 64}
-  temp_str = (dict_ecc[group.groupType()] - len(temp_str)) * '0' + temp_str
-  print('---=====>>>>>' + str(len(temp_str)))
-  # [41372892327122402259051087308354775842713543464993447959664366536264693688827,43944647364956715755691152459512959705768181475922053403345518731063504387091]
+  temp_str = (dict_ecc[group.groupType()] - len(temp_str)) * '0' + temp_str  
   return group.encode(binascii.a2b_hex(temp_str), include_ctr=True)
 
 security_dict = {
@@ -24,8 +22,6 @@ def initHandler(kappa):
   g, h = group.random(G), group.random(G)
   x, gamma = group.random(ZR), group.random(ZR)
   y, xi = g ** x, g ** gamma
-  print('xi: ----====>>>')
-  print(xi)
   z = group.hash((g, h, y), G)
 
   ret = [g, h,\
@@ -49,15 +45,8 @@ def issuerHandler(issueparam):
   yt = point2Obj(int(issueparam.yt), group)
   #####!!!!!!!!!!!!!!!!!!!!!!!Danger!!!!!!!!!!!!!!#######
   
-  print('yt: ----====>>>')
-  print(yt)
   gamma = group.init(ZR, int(issueparam.gamma))
   z = group.deserialize(str.encode(issueparam.sz))
-
-  # ------------------------------------------------
-  #x, gamma = group.random(ZR), group.random(ZR)
-  #y, xi = g ** x, g ** gamma
-  # ------------------------------------------------
   
   zu = z ** (gamma ** -1)
   v, u, d, s1, s2 = (group.random(ZR) for i in range(5))
@@ -121,14 +110,8 @@ def oneHandler(oneParameter):
   delta = d + t5
   ####----------------------------------------
   xi = group.deserialize(str.encode(oneParameter.sxi))
-  print('#@xi: ----====>>>')
-  print(xi)
   v = group.init(ZR, int(oneParameter.v))
-  print('#@v: ----====>>>')
-  print(v)
   xiv = xi ** v
-  print('#@xiv: ----====>>>')
-  print(xiv)
 
   ret = [zeta1, zeta2, alpha, beta1, beta2, epsilon, e, c, r, roi, omega, sigma1, sigma2, delta, xiv, bytes.decode(group.serialize(xiv)), bytes.decode(group.serialize(zeta1)), bytes.decode(group.serialize(zeta2))]
   return (str(i) for i in ret)

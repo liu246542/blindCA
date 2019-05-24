@@ -1,6 +1,6 @@
 ## Introduction
 
-This is a light-weight server for fair blind signature with privacy-preserving smart constract. You can find the complete project at [blockchain-crypto-lab](https://github.com/blockchain-crypto-lab). All rights reserved by [rjgeek](https://github.com/rjgeek).
+This is a light-weight server for fair blind signature with privacy-preserving smart constract. You can find the complete project at [blockchain-crypto-lab](https://github.com/blockchain-crypto-lab). All rights reserved by `Anonymous Team`.
 
 ## Quick Start
 
